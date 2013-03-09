@@ -1,0 +1,16 @@
+DIR="$( dirname "${BASH_SOURCE[0]}" )"
+
+cp -f ~/.vimrc ~/.vimrc.bak
+cp -f ~/.vim.bash ~/.vim.bash.bak
+
+cp -f "$DIR/.vimrc" ~/.vimrc
+cp -f "$DIR/.vim.bash" ~/.vim.bash
+
+echo "Make sure you have added the following code to you bashrc file"
+
+echo
+
+echo "# Run bash commands required for .vimrc
+if [ -f ~/.vim.bash ]; then
+    . ~/.vim.bash
+fi"
