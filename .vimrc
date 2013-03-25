@@ -6,6 +6,7 @@
 " File Type detection
 filetype on
 filetype plugin on
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Indentation settings
 set tabstop=4
@@ -44,6 +45,17 @@ set hls is      " highlight search text throughout the document.
 set wrapscan    " wrap the scan around the document
 "set ic          "ignore case in search
 
+""""" PLUGINS
+
+" Project Workspace
+source ~/.vim/plugin/project.vim
+
+" PHP Documentor
+source ~/.vim/plugin/php-doc.vim 
+
+""""" KEYBOARD MAPPINGS
+
+" CTRL+S for save
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -57,3 +69,12 @@ command -nargs=0 -bar Update if &modified
 
 nnoremap <silent> <C-S> :<C-u>Update<CR>
 inoremap <c-s> <c-o>:Update<CR>
+
+" CTRL+SPACE for autocomplete
+imap <c-Space> <c-x><c-o>
+imap <C-@> <C-Space>
+
+" CTRL+P for phpDoc
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR>
