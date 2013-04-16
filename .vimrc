@@ -45,14 +45,6 @@ set hls is      " highlight search text throughout the document.
 set wrapscan    " wrap the scan around the document
 "set ic          "ignore case in search
 
-""""" PLUGINS
-
-" Project Workspace
-source ~/.vim/plugin/project.vim
-
-" PHP Documentor
-source ~/.vim/plugin/php-doc.vim 
-
 """"" KEYBOARD MAPPINGS
 
 " CTRL+S for save
