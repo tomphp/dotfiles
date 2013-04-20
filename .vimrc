@@ -88,9 +88,9 @@ imap <c-Space> <c-x><c-o>
 imap <C-@> <C-Space>
 
 " CTRL+P for phpDoc
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR>
+inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <Leader>d  :call PhpDocSingle()<CR> 
+vnoremap <Leader>d :call PhpDocRange()<CR>
 
 " NERDTree Mappings
 
