@@ -11,6 +11,12 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'AutoComplPop'
+Bundle 'StanAngeloff/php.vim'
+Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'stephpy/vim-phpdoc'
+
+" Command T requires ruby support :(
+"Bundle 'wincent/Command-T'
 
 " Keeps an automatic backup
 "set backup          " Enable Backups
@@ -84,3 +90,12 @@ imap <C-@> <C-Space>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR>
+
+" NERDTree Mappings
+
+autocmd vimenter * if !argc() | NERDTree | endif
+
+map <C-n> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
