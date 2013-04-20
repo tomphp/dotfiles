@@ -8,6 +8,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'AutoComplPop'
@@ -98,4 +99,10 @@ autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" PHP Parsing & Checking commands
+autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
+autocmd FileType php noremap <C-L> :w!<CR>:!php -l %<CR>
+autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
+autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
