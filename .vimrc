@@ -15,6 +15,7 @@ Bundle 'AutoComplPop'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'stephpy/vim-phpdoc'
+Bundle 'Lokaltog/powerline'
 
 " Command T requires ruby support :(
 "Bundle 'wincent/Command-T'
@@ -65,6 +66,9 @@ set showtabline=2
 set hls is      " highlight search text throughout the document.
 set wrapscan    " wrap the scan around the document
 "set ic          "ignore case in search
+
+" Powerline settings
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 
 """"" KEYBOARD MAPPINGS
 
