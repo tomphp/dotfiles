@@ -51,8 +51,9 @@ set autoindent
 "set spell
 
 " Enable Code Folding
-"set foldenable
-"set foldmethod=syntax
+set foldenable
+set foldmethod=syntax
+let php_folding=1
 
 " Show lines that exceed 80 characters
 match ErrorMsg '\%80v.\+'
@@ -122,7 +123,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " PHP Parsing & Checking commands
 autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
-autocmd FileType php noremap <C-L> :w!<CR>:!php -l %<CR>
+autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
 autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
 autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
