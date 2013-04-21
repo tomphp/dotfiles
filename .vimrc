@@ -71,6 +71,12 @@ set laststatus=2
 " gt gT
 set showtabline=2
 
+" Window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Set Search options highlight, and wrap search
 set hls is      " highlight search text throughout the document.
 set wrapscan    " wrap the scan around the document
