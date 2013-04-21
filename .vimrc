@@ -28,7 +28,12 @@ Bundle 'Lokaltog/powerline'
 " File Type detection
 filetype on
 filetype plugin on
+
+" Auto completion
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" Strip trailing white space from .php files
+autocmd BufWritePre *.php :%s/\s\+$//e
 
 " Indentation settings
 set tabstop=4
@@ -50,6 +55,10 @@ set autoindent
 
 " Show lines that exceed 80 characters
 match ErrorMsg '\%80v.\+'
+
+" Show whitespaces
+set listchars=tab:▸\ 
+set list
 
 " Line Numbers
 set number
