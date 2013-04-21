@@ -16,6 +16,7 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'stephpy/vim-phpdoc'
 Bundle 'Lokaltog/powerline'
+Bundle 'tpope/vim-fugitive'
 
 " Command T requires ruby support :(
 "Bundle 'wincent/Command-T'
