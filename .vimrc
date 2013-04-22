@@ -1,6 +1,13 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+if filereadable(expand("$VIMHOME/config.local.vim"))
+    source $VIMHOME/config.local.vim
+endif
+
+" Save the directory we started in
+let g:start_dir=getcwd()
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -72,6 +79,19 @@ set laststatus=2
 " Show Tab Bar
 " gt gT
 set showtabline=2
+" Firefox tab controls
+map <C-S-]> gt
+map <C-S-[> gT
+map <C-1> 1gt
+map <C-2> 2gt
+map <C-3> 3gt
+map <C-4> 4gt
+map <C-5> 5gt
+map <C-6> 6gt
+map <C-7> 7gt
+map <C-8> 8gt
+map <C-9> 9gt
+map <C-0> :tablast<CR>
 
 " Window navigation
 map <C-h> <C-w>h
@@ -86,6 +106,11 @@ set wrapscan    " wrap the scan around the document
 
 " Powerline settings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+
+" PHPDoc settings
+if !exists("g:pdv_cfg_Author")
+    let g:pdv_cfg_Author = "Tom Oram <tom@scl.co.uk>"
+endif
 
 """"" KEYBOARD MAPPINGS
 
@@ -127,3 +152,6 @@ autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
 autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
 autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
+let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
+nnoremap <f5> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+execute "set tags=" . g:project_tags

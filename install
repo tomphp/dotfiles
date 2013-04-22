@@ -8,6 +8,9 @@ cp -f ~/.vim.bash ~/.vim.bash.bak
 cp -f "$DIR/.vimrc" ~/.vimrc
 cp -f "$DIR/.vim.bash" ~/.vim.bash
 
+# Create the tags directory
+mkdir ~/.vim.tags
+
 # Install bundles
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
