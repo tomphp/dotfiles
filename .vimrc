@@ -79,19 +79,6 @@ set laststatus=2
 " Show Tab Bar
 " gt gT
 set showtabline=2
-" Firefox tab controls
-map <C-S-]> gt
-map <C-S-[> gT
-map <C-1> 1gt
-map <C-2> 2gt
-map <C-3> 3gt
-map <C-4> 4gt
-map <C-5> 5gt
-map <C-6> 6gt
-map <C-7> 7gt
-map <C-8> 8gt
-map <C-9> 9gt
-map <C-0> :tablast<CR>
 
 " Window navigation
 map <C-h> <C-w>h
@@ -130,21 +117,24 @@ nnoremap <silent> <C-S> :<C-u>Update<CR>
 inoremap <c-s> <c-o>:Update<CR>
 
 " CTRL+SPACE for autocomplete
-imap <c-Space> <c-x><c-o>
-imap <C-@> <C-Space>
+"imap <c-Space> <c-x><c-o>
+"imap <C-@> <C-Space>
 
-" CTRL+P for phpDoc
+" phpDoc
 inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <Leader>d  :call PhpDocSingle()<CR> 
 vnoremap <Leader>d :call PhpDocRange()<CR>
 
 " NERDTree Mappings
-
 autocmd vimenter * if !argc() | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" PHP shortcuts
+"autocmd FileType php inoremap <C--> ->
+"autocmd FileType php inoremap <C-=>> =>
 
 " PHP Parsing & Checking commands
 autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
