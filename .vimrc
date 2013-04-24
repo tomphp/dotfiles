@@ -24,9 +24,15 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'stephpy/vim-phpdoc'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'godlygeek/tabular'
 
-" Command T requires ruby support :(
-"Bundle 'wincent/Command-T'
+" Snipmate dependencies
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/vim-snippets"
+
+" SnipMate
+Bundle "garbas/vim-snipmate"
 
 " Keeps an automatic backup
 "set backup          " Enable Backups
