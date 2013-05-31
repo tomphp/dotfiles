@@ -24,12 +24,13 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'stephpy/vim-phpdoc'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 Bundle 'godlygeek/tabular'
 
 " Snipmate dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
+Bundle "tomphp/vim-snippets", "tomphp-snippets"
 
 " SnipMate
 Bundle "garbas/vim-snipmate"
@@ -70,6 +71,8 @@ let php_folding=1
 
 " Show lines that exceed 80 characters
 match ErrorMsg '\%80v.\+'
+highlight ColorColumn ctermbg=6
+set colorcolumn=80
 
 " Show whitespaces
 set listchars=tab:▸\ 
@@ -132,7 +135,7 @@ nnoremap <Leader>d  :call PhpDocSingle()<CR>
 vnoremap <Leader>d :call PhpDocRange()<CR>
 
 " NERDTree Mappings
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -150,4 +153,5 @@ autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2
 
 let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
 nnoremap <f5> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+"nnoremap <f5> :exe ':!phpctags -f ' . g:project_tags . ' -R .'<CR>
 execute "set tags=" . g:project_tags
