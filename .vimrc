@@ -18,14 +18,17 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'AutoComplPop'
+"Bundle 'AutoComplPop'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'stephpy/vim-phpdoc'
+Bundle 'tomphp/vim-phpdoc'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'mattn/gist-vim'
 Bundle 'godlygeek/tabular'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/syntastic.git'
 
 " Snipmate dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -70,7 +73,7 @@ set foldmethod=syntax
 let php_folding=1
 
 " Show lines that exceed 80 characters
-match ErrorMsg '\%80v.\+'
+"match ErrorMsg '\%80v.\+'
 highlight ColorColumn ctermbg=6
 set colorcolumn=80
 
@@ -107,6 +110,9 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 if !exists("g:pdv_cfg_Author")
     let g:pdv_cfg_Author = "Tom Oram <tom@scl.co.uk>"
 endif
+
+" Set up syntax checker
+let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
 
 """"" KEYBOARD MAPPINGS
 
@@ -152,6 +158,6 @@ autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
 autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
 let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
-nnoremap <f5> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-"nnoremap <f5> :exe ':!phpctags -f ' . g:project_tags . ' -R .'<CR>
-execute "set tags=" . g:project_tags
+"nnoremap <f5> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+nnoremap <f5> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+"execute "set tags=" . g:project_tags
