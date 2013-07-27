@@ -15,25 +15,38 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
+" Navigating
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-easymotion'
+
+" Editing
+Bundle 'tpope/vim-surround'
+Bundle 'godlygeek/tabular'
+
+" PHP
 "Bundle 'AutoComplPop'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tomphp/vim-phpdoc'
-Bundle 'Lokaltog/powerline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'mattn/gist-vim'
-Bundle 'godlygeek/tabular'
-Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic.git'
+Bundle 'joonty/vdebug'
+
+" Used for vim debug
+Bundle 'tyru/open-browser.vim'
+
+" Git
+Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'airblade/vim-gitgutter'
 
 " Snipmate dependencies
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "tomphp/vim-snippets", "tomphp-snippets"
+"Bundle "tomphp/vim-snippets", "tomphp-snippets"
+Bundle "tomphp/vim-snippets"
 
 " SnipMate
 Bundle "garbas/vim-snipmate"
@@ -158,6 +171,28 @@ autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
 autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
 let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
-"nnoremap <f5> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-nnoremap <f5> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+"nnoremap <f3> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+nnoremap <f3> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
 "execute "set tags=" . g:project_tags
+
+function! Debug(url)
+    let url = a:url
+    " add 'http://' if it is not in url
+    let http_pos = stridx(url, 'http')
+    if http_pos != 0
+        let url = 'http://'.url
+    endif
+    " add 'vim_debug' IDE key to url, this IDE key is also set in vdebug options
+    let q_pos = stridx(url, '?')
+    if q_pos == -1
+        let url = url.'?XDEBUG_SESSION_START=vim_debug'
+    else
+        let url = url.'&XDEBUG_SESSION_START=vim_debug'
+    endif
+    " launch browser
+    call OpenBrowser(url)
+     " start debugging
+    python debugger.run()
+endfunction
+command! -nargs=1 Debug call Debug('<args>')
+
