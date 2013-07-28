@@ -171,10 +171,12 @@ autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
 autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
 let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
-"nnoremap <f3> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-nnoremap <f3> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+"nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
 "execute "set tags=" . g:project_tags
 
+" vDebug settings
+" Allows the command :Debug http://127.0.0.1/Project/index.php to work
 function! Debug(url)
     let url = a:url
     " add 'http://' if it is not in url
