@@ -18,12 +18,17 @@ Bundle 'gmarik/vundle'
 " Navigating
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/powerline'
+Bundle 'Lokaltog/powerline', 'develop'
 Bundle 'Lokaltog/vim-easymotion'
 
 " Editing
 Bundle 'tpope/vim-surround'
 Bundle 'godlygeek/tabular'
+
+" Theme
+Bundle 'Lucius', '7.1.1'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'spf13/vim-colors'
 
 " PHP
 "Bundle 'AutoComplPop'
@@ -55,6 +60,25 @@ Bundle "garbas/vim-snipmate"
 "set backup          " Enable Backups
 "set backupext=.bak  " Add .bak extension to modified files
 "set patchmode=.orig " Copy original file to with .orig extension Before saving.
+
+" Theme
+set shortmess+=I                       " Disable splash text
+set t_Co=256                           " Fix colors in the terminal
+"set guifont=Anonymous\ Pro\ 10         " Way better than monospace
+let g:lucius_style = 'dark'
+silent color lucius                    " Vim colorscheme
+let g:Powerline_colorscheme = 'lucious' " Powerline colorscheme
+set laststatus=2                       " Always show status bar
+set mousemodel=popup                   " Enable context menu
+
+" Clean up the GUI in Gvim
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions+=LlRrb " bug?
+    set guioptions-=LlRrb
+    set guifont=monospace\ 9         " Way better than monospace
+endif
 
 " File Type detection
 filetype on
