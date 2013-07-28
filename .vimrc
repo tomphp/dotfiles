@@ -81,9 +81,9 @@ set autoindent
 "set spell
 
 " Enable Code Folding
-set foldenable
-set foldmethod=syntax
-let php_folding=1
+"set foldenable
+"set foldmethod=syntax
+"let php_folding=1
 
 " Show lines that exceed 80 characters
 "match ErrorMsg '\%80v.\+'
