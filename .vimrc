@@ -31,10 +31,11 @@ Bundle 'Lucius', '7.1.1'
 "Bundle 'spf13/vim-colors'
 
 " PHP
-"Bundle 'AutoComplPop'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tomphp/vim-phpdoc'
+Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'joonty/vdebug'
 
@@ -90,6 +91,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " Strip trailing white space from .php files
 autocmd BufWritePre *.php :%s/\s\+$//e
 
+" Allow backspacing before the insert point
+set backspace=indent,eol,start
+
 " Indentation settings
 set tabstop=4
 set softtabstop=4
@@ -104,14 +108,20 @@ set autoindent
 " Spell checking
 "set spell
 
+" Syntax highlighting
+syntax on
+
 " Enable Code Folding
-"set foldenable
-"set foldmethod=syntax
+set foldenable
+set foldmethod=syntax
 "let php_folding=1
+
+" Highlight the cursorline
+set cursorline
 
 " Show lines that exceed 80 characters
 "match ErrorMsg '\%80v.\+'
-highlight ColorColumn ctermbg=6
+highlight ColorColumn ctermbg=238 guibg=#444444
 set colorcolumn=80
 
 " Show whitespaces
@@ -188,6 +198,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "autocmd FileType php inoremap <C--> ->
 "autocmd FileType php inoremap <C-=>> =>
 
+" PHP Namespace remaps
+
+autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
 " PHP Parsing & Checking commands
 autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
 autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
@@ -203,6 +218,10 @@ nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/p
 " Allows the command :Debug http://127.0.0.1/Project/index.php to work
 function! Debug(url)
     let url = a:url
+    let leading_slash = stridx(url, '/')
+    if leading_slash == 0
+        let url = '127.0.0.1'.url
+    endif
     " add 'http://' if it is not in url
     let http_pos = stridx(url, 'http')
     if http_pos != 0
