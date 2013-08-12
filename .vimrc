@@ -49,13 +49,12 @@ Bundle 'mattn/gist-vim'
 Bundle 'airblade/vim-gitgutter'
 
 " Snipmate dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-"Bundle "tomphp/vim-snippets", "tomphp-snippets"
-Bundle "tomphp/vim-snippets"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tomphp/vim-snippets'
 
 " SnipMate
-Bundle "garbas/vim-snipmate"
+Bundle 'garbas/vim-snipmate'
 
 " Keeps an automatic backup
 "set backup          " Enable Backups
@@ -70,7 +69,18 @@ let g:lucius_style = 'dark'
 silent color lucius                    " Vim colorscheme
 let g:Powerline_colorscheme = 'lucious' " Powerline colorscheme
 set laststatus=2                       " Always show status bar
+set noshowmode                         " Hide default mode string
 set mousemodel=popup                   " Enable context menu
+
+" Hurry up powerline when exiting insert mode
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 
 " Clean up the GUI in Gvim
 if has("gui_running")
