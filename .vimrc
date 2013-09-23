@@ -29,6 +29,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'Lucius', '7.1.1'
 "Bundle 'altercation/vim-colors-solarized'
 "Bundle 'spf13/vim-colors'
+Bundle 'groenewege/vim-less'
 
 " PHP
 "Bundle 'Valloric/YouCompleteMe'
@@ -170,6 +171,8 @@ endif
 
 " Set up syntax checker
 let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
+" C++11
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 """"" KEYBOARD MAPPINGS
 
