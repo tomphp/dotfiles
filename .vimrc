@@ -29,6 +29,7 @@
     Bundle 'scrooloose/nerdtree'
     Bundle 'Lokaltog/powerline', 'develop'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'terryma/vim-multiple-cursors'
 
     " Editing
     Bundle 'tpope/vim-surround'
@@ -49,6 +50,9 @@
     Bundle 'scrooloose/syntastic.git'
     Bundle 'joonty/vdebug'
 
+    " Twig syntax
+    Bundle 'lunaru/vim-twig'
+
     " Used for vim debug
     Bundle 'tyru/open-browser.vim'
 
@@ -57,6 +61,9 @@
     Bundle 'mattn/webapi-vim'
     Bundle 'mattn/gist-vim'
     Bundle 'airblade/vim-gitgutter'
+
+    " Puppet syntax
+    Bundle 'rodjek/vim-puppet'
 
     " Snipmate dependencies
     Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -107,7 +114,7 @@ let g:start_dir=getcwd()
         set tabstop=4
         set softtabstop=4
         set shiftwidth=4
-        "set expandtab
+        set expandtab
 
         " Set Auto-indent options
         set cindent
@@ -158,6 +165,21 @@ let g:start_dir=getcwd()
     " }
     
     " Key Mappings {
+        "Navigate wrapped lines
+        nnoremap j gj
+        nnoremap k gk
+
+        " Save as root
+        cmap w!! %!sudo tee > /dev/null %
+
+        " Better command line editing
+        cnoremap <C-j> <t_kd>
+        cnoremap <C-k> <t_ku>
+        cnoremap <C-h> <t_kl>
+        cnoremap <C-l> <t_kr>
+        cnoremap <C-a> <Home>
+        cnoremap <C-e> <End>
+
         " Window navigation
         map <C-h> <C-w>h
         map <C-j> <C-w>j
@@ -168,88 +190,115 @@ let g:start_dir=getcwd()
 
         " If the current buffer has never been saved, it will have no name,
         " call the file browser to save it, otherwise just save it.
-        command -nargs=0 -bar Update if &modified 
-            \|  if empty(bufname('%'))
-            \|      browse confirm write
-            \|  else
-            \|      confirm write
-            \|  endif
-            \|endif
+    command -nargs=0 -bar Update if &modified 
+        \|  if empty(bufname('%'))
+        \|      browse confirm write
+        \|  else
+        \|      confirm write
+        \|  endif
+        \|endif
 
-        nnoremap <silent> <C-S> :<C-u>Update<CR>
-        inoremap <c-s> <c-o>:Update<CR>
+    nnoremap <silent> <C-S> :<C-u>Update<CR>
+    inoremap <c-s> <c-o>:Update<CR>
 
-        " CTRL+SPACE for autocomplete
-        "imap <c-Space> <c-x><c-o>
-        "imap <C-@> <C-Space>
+    " CTRL+SPACE for autocomplete
+    "imap <c-Space> <c-x><c-o>
+    "imap <C-@> <C-Space>
 
-        " NERDTree Mappings
-        "autocmd vimenter * if !argc() | NERDTree | endif
+    " NERDTree Mappings
+    "autocmd vimenter * if !argc() | NERDTree | endif
 
-        map <C-n> :NERDTreeToggle<CR>
+    map <Leader>t :NERDTreeToggle<CR>
 
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-    " }
-    
-    " Powerline {
-        " Hurry up powerline when exiting insert mode
-        if ! has('gui_running')
-            set ttimeoutlen=10
-            augroup FastEscape
-                autocmd!
-                au InsertEnter * set timeoutlen=0
-                au InsertLeave * set timeoutlen=1000
-            augroup END
-        endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-        " Powerline settings
-        set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-    " }
+    nnoremap <A-j> :m .+1<CR>==
+    nnoremap <A-k> :m .-2<CR>==
+    inoremap <A-j> <Esc>:m .+1<CR>==gi
+    inoremap <A-k> <Esc>:m .-2<CR>==gi
+    vnoremap <A-j> :m '>+1<CR>gv=gv
+    vnoremap <A-k> :m '<-2<CR>gv=gv
+" }
+
+" Powerline {
+    " Hurry up powerline when exiting insert mode
+    if ! has('gui_running')
+        set ttimeoutlen=10
+        augroup FastEscape
+            autocmd!
+            au InsertEnter * set timeoutlen=0
+            au InsertLeave * set timeoutlen=1000
+        augroup END
+    endif
+
+    " Powerline settings
+    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+" }
 " }
 
 " C++ {
-    " Settings {
-        autocmd FileType cpp set tabstop=2
-        autocmd FileType cpp set softtabstop=2
-        autocmd FileType cpp set shiftwidth=2
-        autocmd FileType cpp set expandtab
-        
-        " C++11
-        let g:syntastic_cpp_compiler_options = ' -std=c++11'
-    " }
+" Settings {
+    autocmd FileType cpp set tabstop=2
+    autocmd FileType cpp set softtabstop=2
+    autocmd FileType cpp set shiftwidth=2
+    autocmd FileType cpp set expandtab
+    
+    " C++11
+    let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" }
 " }
 
 " PHP {
-    " Settings {
-        " Auto completion
-        autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" Settings {
+    " Auto completion
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-        " Strip trailing white space from .php files
-        autocmd BufWritePre *.php :%s/\s\+$//e
+    " Strip trailing white space from .php files
+    autocmd BufWritePre *.php :%s/\s\+$//e
 
-        " Indentation rules
-        autocmd FileType php set expandtab
+    " Indentation rules
+    autocmd FileType php set expandtab
 
-        "let php_folding=1
-        " PHPDoc settings
-        if !exists("g:pdv_cfg_Author")
-            let g:pdv_cfg_Author = "Tom Oram <tom@scl.co.uk>"
-        endif
+    "let php_folding=1
+    " PHPDoc settings
+    if !exists("g:pdv_cfg_Author")
+        let g:pdv_cfg_Author = "Tom Oram <tom@scl.co.uk>"
+    endif
 
-        " Set up syntax checker
-        let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
+    " Set up syntax checker
+    let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
 
-        " Ctags generation
-        let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
-    " }
+    " Ctags generation
+    let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
+" }
 
-    " Keyboard Mappings {
-        " PHP shortcuts
-        "autocmd FileType php inoremap <C--> ->
-        "autocmd FileType php inoremap <C-=>> =>
+" Cool features {
+    "autocmd FileType php inoremap <buffer> <silent> > ><Esc>:call <SID>phpalign()<CR>A
+    "function! s:phpalign()
+    "    let p = '^\s*\w+\s*[=+]>.*$'
+    "    let lineContainsHashrocket = getline('.') =~# '^\s*\w+\s*[=+]>'
+    "    let hashrocketOnPrevLine = getline(line('.') - 1) =~# p
+    "    let hashrocketOnNextLine = getline(line('.') + 1) =~# p
+    "    if exists(':Tabularize') " && lineContainsHashrocket && (hashrocketOnPrevLine || hashrocketOnNextLine)
+    "        Tabularize /=>/l1
+    "        normal! 0
+    "    endif
+    "endfunction
+" }
 
-        " phpDoc
-        autocmd FileType php inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
+" Abbreviations {
+    autocmd FileType php iabbr $t $this-><c-r>=Eatchar('')<cr>
+    autocmd FileType php iabbr iae InvalidArguementException<c-r>=Eatchar('')<cr>
+    autocmd FileType php iabbr rte RuntimeException<c-r>=Eatchar('')<cr>
+" }
+
+" Keyboard Mappings {
+    " PHP shortcuts
+    "autocmd FileType php inoremap <C--> ->
+    "autocmd FileType php inoremap <C-=>> =>
+
+    " phpDoc
+    autocmd FileType php inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
         autocmd FileType php nnoremap <Leader>d  :call PhpDocSingle()<CR> 
         autocmd FileType php vnoremap <Leader>d :call PhpDocRange()<CR>
 
@@ -264,10 +313,16 @@ let g:start_dir=getcwd()
         autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
         "nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-        nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+        nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
         "execute "set tags=" . g:project_tags
     " }
 " }
+
+" Utilities
+func Eatchar(pat)
+  let c = nr2char(getchar(0))
+  return (c =~ a:pat) ? '' : c
+endfunc
 
 " vDebug settings
 " Allows the command :Debug http://127.0.0.1/Project/index.php to work
