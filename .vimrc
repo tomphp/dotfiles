@@ -30,6 +30,7 @@
     Bundle 'Lokaltog/powerline', 'develop'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'terryma/vim-multiple-cursors'
+    Bundle 'christoomey/vim-tmux-navigator'
 
     " Editing
     Bundle 'tpope/vim-surround'
