@@ -27,7 +27,7 @@
     " Navigating
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'Lokaltog/powerline', 'develop'
+    "Bundle 'Lokaltog/powerline', 'develop'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'christoomey/vim-tmux-navigator'
@@ -233,7 +233,10 @@ let g:start_dir=getcwd()
     endif
 
     " Powerline settings
-    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+    "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
 " }
 " }
 
