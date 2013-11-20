@@ -1,0 +1,32 @@
+# Remap ctrl to caps lock
+echo "keycode 66 = Control_L
+      clear Lock
+      add Control = Control_L" | xmodmap -
+
+# Add python's PIP bin directory to the path
+PATH=$PATH:/home/tom/.local/bin
+
+# Run composer executables
+PATH=./vendor/bin:$PATH
+
+POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
+
+# Set up powerline in the terminal
+. "$POWERLINE_DIR/bindings/bash/powerline.sh"
+
+# Switch bash to VI mode
+set -o vi
+
+# Allow vim to use ctrl + s
+vim()
+{
+    # Save origin terminal settings - so went can remap ctrl-s
+    local STTYOPTS="$(stty --save)"
+    stty stop '' -ixoff
+
+    # Run vim
+    command vim "$@"
+
+    # Restore terminal settings
+    stty "$STTYOPTS"
+}
