@@ -50,6 +50,7 @@
     Bundle 'arnaud-lb/vim-php-namespace'
     Bundle 'scrooloose/syntastic.git'
     Bundle 'joonty/vdebug'
+    Bundle 'stephpy/vim-php-cs-fixer'
 
     " Twig syntax
     Bundle 'lunaru/vim-twig'
@@ -171,7 +172,7 @@ let g:start_dir=getcwd()
         nnoremap k gk
 
         " Save as root
-        cmap w!! %!sudo tee > /dev/null %
+        cnoremap w!! %!sudo tee > /dev/null %
 
         " Better command line editing
         cnoremap <C-j> <t_kd>
@@ -182,62 +183,69 @@ let g:start_dir=getcwd()
         cnoremap <C-e> <End>
 
         " Window navigation
-        map <C-h> <C-w>h
-        map <C-j> <C-w>j
-        map <C-k> <C-w>k
-        map <C-l> <C-w>l
+        noremap <C-h> <C-w>h
+        noremap <C-j> <C-w>j
+        noremap <C-k> <C-w>k
+        noremap <C-l> <C-w>l
 
         " CTRL+S for save
 
         " If the current buffer has never been saved, it will have no name,
         " call the file browser to save it, otherwise just save it.
-    command -nargs=0 -bar Update if &modified 
-        \|  if empty(bufname('%'))
-        \|      browse confirm write
-        \|  else
-        \|      confirm write
-        \|  endif
-        \|endif
+        command! -nargs=0 -bar Update if &modified 
+            \|  if empty(bufname('%'))
+            \|      browse confirm write
+            \|  else
+            \|      confirm write
+            \|  endif
+            \|endif
 
-    nnoremap <silent> <C-S> :<C-u>Update<CR>
-    inoremap <c-s> <c-o>:Update<CR>
+        nnoremap <silent> <C-S> :<C-u>Update<CR>
+        inoremap <c-s> <c-o>:Update<CR>
 
-    " CTRL+SPACE for autocomplete
-    "imap <c-Space> <c-x><c-o>
-    "imap <C-@> <C-Space>
+        " CTRL+SPACE for autocomplete
+        "imap <c-Space> <c-x><c-o>
+        "imap <C-@> <C-Space>
 
-    " NERDTree Mappings
-    "autocmd vimenter * if !argc() | NERDTree | endif
+        " NERDTree Mappings
+        "autocmd vimenter * if !argc() | NERDTree | endif
+        noremap <Leader>t :NERDTreeToggle<CR>
 
-    map <Leader>t :NERDTreeToggle<CR>
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+        " Select all
+        noremap <Leader>a ggVG
 
-    nnoremap <A-j> :m .+1<CR>==
-    nnoremap <A-k> :m .-2<CR>==
-    inoremap <A-j> <Esc>:m .+1<CR>==gi
-    inoremap <A-k> <Esc>:m .-2<CR>==gi
-    vnoremap <A-j> :m '>+1<CR>gv=gv
-    vnoremap <A-k> :m '<-2<CR>gv=gv
-" }
+        " Move lines up and down (requires alt aka gvim)
+        nnoremap <A-j> :m .+1<CR>==
+        nnoremap <A-k> :m .-2<CR>==
+        inoremap <A-j> <Esc>:m .+1<CR>==gi
+        inoremap <A-k> <Esc>:m .-2<CR>==gi
+        vnoremap <A-j> :m '>+1<CR>gv=gv
+        vnoremap <A-k> :m '<-2<CR>gv=gv
+    " }
 
-" Powerline {
-    " Hurry up powerline when exiting insert mode
-    if ! has('gui_running')
-        set ttimeoutlen=10
-        augroup FastEscape
-            autocmd!
-            au InsertEnter * set timeoutlen=0
-            au InsertLeave * set timeoutlen=1000
-        augroup END
-    endif
+    " CtrlP {
+        let g:ctrlp_max_files=50000
+    " }
 
-    " Powerline settings
-    "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-    python from powerline.vim import setup as powerline_setup
-    python powerline_setup()
-    python del powerline_setup
-" }
+    " Powerline {
+        " Hurry up powerline when exiting insert mode
+        if ! has('gui_running')
+            set ttimeoutlen=10
+            augroup FastEscape
+                autocmd!
+                au InsertEnter * set timeoutlen=0
+                au InsertLeave * set timeoutlen=1000
+            augroup END
+        endif
+
+        " Powerline settings
+        "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+        python from powerline.vim import setup as powerline_setup
+        python powerline_setup()
+        python del powerline_setup
+    " }
 " }
 
 " C++ {
@@ -323,7 +331,7 @@ let g:start_dir=getcwd()
 " }
 
 " Utilities
-func Eatchar(pat)
+func! Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
@@ -355,3 +363,37 @@ function! Debug(url)
 endfunction
 command! -nargs=1 Debug call Debug('<args>')
 
+" Refactoring work in progress
+
+let g:php_refactor_command='php ~/bin/refactor.phar'
+let g:php_refactor_patch_command='patch'
+
+func! PhpRefactorExtractMethod()
+    " check the file has been saved
+    if &modified
+        echom 'Cannot refactor; file containes unsaved changes'
+        return
+    endif
+
+    let startLine=line('v')
+    let endLine=line('.')
+    let method=input('Enter extracted method name: ')
+
+    " check line numbers are the right way around
+    if startLine > endLine
+        let temp=startLine
+        let startLine=endLine
+        let endLine=temp
+    endif
+
+    exec ':!'.g:php_refactor_command
+        \ .' extract-method'
+        \ .' %'
+        \ .' '.startLine.'-'.endLine
+        \ .' '.method
+        \ .' | '.g:php_refactor_patch_command
+
+    " todo : exit visual mode
+endfunc
+
+vnoremap <expr> <Leader>rem PhpRefactorExtractMethod()
