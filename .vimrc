@@ -51,6 +51,8 @@
     Bundle 'scrooloose/syntastic.git'
     Bundle 'joonty/vdebug'
     Bundle 'stephpy/vim-php-cs-fixer'
+    Bundle 'vim-php/vim-php-refactoring'
+    Bundle 'stephpy/vim-php-cs-fixer'
 
     " Twig syntax
     Bundle 'lunaru/vim-twig'
@@ -73,7 +75,8 @@
     Bundle 'tomphp/vim-snippets'
 
     " SnipMate
-    Bundle 'garbas/vim-snipmate'
+    "Bundle 'garbas/vim-snipmate'
+    Bundle 'SirVer/ultisnips'
 " }
 
 " Save the directory we started in
@@ -108,6 +111,7 @@ let g:start_dir=getcwd()
         " File Type detection
         filetype on
         filetype plugin on
+        filetype plugin indent on
 
         " Allow backspacing before the insert point
         set backspace=indent,eol,start
@@ -119,8 +123,8 @@ let g:start_dir=getcwd()
         set expandtab
 
         " Set Auto-indent options
-        set cindent
-        set smartindent
+        "set cindent
+        "set smartindent
         set autoindent
 
         " Syntax highlighting
@@ -187,6 +191,11 @@ let g:start_dir=getcwd()
         noremap <C-j> <C-w>j
         noremap <C-k> <C-w>k
         noremap <C-l> <C-w>l
+
+        " UltiSnips
+        let g:UltiSnipsExpandTrigger="<tab>"
+        let g:UltiSnipsJumpForwardTrigger="<tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
         " CTRL+S for save
 
@@ -282,6 +291,19 @@ let g:start_dir=getcwd()
 
     " Ctags generation
     let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
+
+    " Refactoring
+    let g:php_refactor_command='php ~/bin/refactor.phar'
+
+    " CS Fixer
+    let g:php_cs_fixer_path = "php-cs-fixer" 
+    let g:php_cs_fixer_level = "all"       
+    let g:php_cs_fixer_config = "default" 
+    let g:php_cs_fixer_php_path = "php"     
+    " let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+    let g:php_cs_fixer_enable_default_mapping = 1
+    let g:php_cs_fixer_dry_run = 0
+    let g:php_cs_fixer_verbose = 1
 " }
 
 " Cool features {
@@ -362,38 +384,3 @@ function! Debug(url)
     python debugger.run()
 endfunction
 command! -nargs=1 Debug call Debug('<args>')
-
-" Refactoring work in progress
-
-let g:php_refactor_command='php ~/bin/refactor.phar'
-let g:php_refactor_patch_command='patch'
-
-func! PhpRefactorExtractMethod()
-    " check the file has been saved
-    if &modified
-        echom 'Cannot refactor; file containes unsaved changes'
-        return
-    endif
-
-    let startLine=line('v')
-    let endLine=line('.')
-    let method=input('Enter extracted method name: ')
-
-    " check line numbers are the right way around
-    if startLine > endLine
-        let temp=startLine
-        let startLine=endLine
-        let endLine=temp
-    endif
-
-    exec ':!'.g:php_refactor_command
-        \ .' extract-method'
-        \ .' %'
-        \ .' '.startLine.'-'.endLine
-        \ .' '.method
-        \ .' | '.g:php_refactor_patch_command
-
-    " todo : exit visual mode
-endfunc
-
-vnoremap <expr> <Leader>rem PhpRefactorExtractMethod()

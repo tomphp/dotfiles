@@ -6,10 +6,12 @@ echo "keycode 66 = Control_L
 # Add python's PIP bin directory to the path
 PATH=$PATH:/home/tom/.local/bin
 
-# Run composer executables
-PATH=./vendor/bin:$PATH
+# Run composer & node executables
+PATH=./vendor/bin:./node_modules/bin:~/.npm/bin:$PATH
 
 POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
+
+NODE_PATH=~/.npm/lib/node_modules:$NODE_PATH
 
 # Set up powerline in the terminal
 . "$POWERLINE_DIR/bindings/bash/powerline.sh"
