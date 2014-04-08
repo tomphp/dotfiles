@@ -7,7 +7,7 @@ echo "keycode 66 = Control_L
 PATH=$PATH:/home/tom/.local/bin
 
 # Run composer & node executables
-PATH=./vendor/bin:./node_modules/bin:~/.npm/bin:$PATH
+PATH=./vendor/bin:./node_modules/.bin:~/.npm/bin:$PATH
 
 POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
 
@@ -32,3 +32,12 @@ vim()
     # Restore terminal settings
     stty "$STTYOPTS"
 }
+
+alias composer="hhvm $(type composer.phar | cut -f3 -d' ')"
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias lsd="echo That\\'s some trippy shit!"
+alias r="phpspec run"
+alias spec="phpspec desc"
+alias v="vim"

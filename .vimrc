@@ -333,23 +333,33 @@ let g:start_dir=getcwd()
 
     " phpDoc
     autocmd FileType php inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
-        autocmd FileType php nnoremap <Leader>d  :call PhpDocSingle()<CR> 
-        autocmd FileType php vnoremap <Leader>d :call PhpDocRange()<CR>
+    autocmd FileType php nnoremap <Leader>d  :call PhpDocSingle()<CR> 
+    autocmd FileType php vnoremap <Leader>d :call PhpDocRange()<CR>
 
-        " PHP Namespace remaps
-        autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
-        autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+    " PHP Namespace remaps
+    autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
+    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
-        " PHP Parsing & Checking commands
-        autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
-        autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
-        autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
-        autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
+    " PHP Parsing & Checking commands
+    autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
+    autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
+    autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
+    autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
 
-        "nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-        nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
-        "execute "set tags=" . g:project_tags
-    " }
+    "nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+    nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+    "execute "set tags=" . g:project_tags
+" }
+" }
+
+" Javascript {
+    " 2 space indents
+    autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+" }
+
+" HTML {
+    " 2 space indents
+    autocmd FileType html setlocal ts=2 sts=2 sw=2
 " }
 
 " Utilities
