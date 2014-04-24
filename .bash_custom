@@ -7,12 +7,18 @@ echo "keycode 66 = Control_L
 PATH=$PATH:/home/tom/.local/bin
 
 # Run composer & node executables
-PATH=./vendor/bin:./node_modules/.bin:~/.npm/bin:$PATH
+PATH=./vendor/bin:$PATH
 
-POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
-
+# Node 
+PATH=./node_modules/.bin:~/.npm/bin:$PATH
 NODE_PATH=~/.npm/lib/node_modules:$NODE_PATH
 
+# golang
+PATH=~/go/bin:/usr/local/go/bin:$PATH
+export GOPATH=~/go
+
+# Powerline
+POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
 # Set up powerline in the terminal
 . "$POWERLINE_DIR/bindings/bash/powerline.sh"
 
