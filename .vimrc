@@ -77,6 +77,9 @@
     " SnipMate
     "Bundle 'garbas/vim-snipmate'
     Bundle 'SirVer/ultisnips'
+
+    " Scala
+    Bundle 'derekwyatt/vim-scala'
 " }
 
 " Save the directory we started in
@@ -350,6 +353,11 @@ let g:start_dir=getcwd()
     nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
     "execute "set tags=" . g:project_tags
 " }
+" }
+"
+" Scala {
+    " 2 space indents
+    autocmd FileType scala setlocal ts=2 sts=2 sw=2
 " }
 
 " Javascript {
