@@ -41,6 +41,10 @@
     "Bundle 'altercation/vim-colors-solarized'
     "Bundle 'spf13/vim-colors'
     Bundle 'groenewege/vim-less'
+    Bundle 'kien/rainbow_parentheses.vim'
+
+    " Spelling & Grammar
+    Bundle "vim-scripts/LanguageTool"
 
     " PHP
     "Bundle 'Valloric/YouCompleteMe'
@@ -52,7 +56,12 @@
     Bundle 'joonty/vdebug'
     Bundle 'stephpy/vim-php-cs-fixer'
     Bundle 'vim-php/vim-php-refactoring'
-    Bundle 'stephpy/vim-php-cs-fixer'
+
+    " Coffeescript
+    Bundle 'kchmck/vim-coffee-script'
+
+    " Clojure
+    Bundle 'tpope/vim-fireplace'
 
     " Twig syntax
     Bundle 'lunaru/vim-twig'
@@ -171,6 +180,27 @@ let g:start_dir=getcwd()
         "set backup          " Enable Backups
         "set backupext=.bak  " Add .bak extension to modified files
         "set patchmode=.orig " Copy original file to with .orig extension Before saving.
+        
+        " Rainbow parentheses
+        let g:rbpt_colorpairs = [
+            \ ['229', '229'],
+            \ ['226', '226'],
+            \ ['216', '216'],
+            \ ['166', '166'],
+            \ ['165', '165'],
+            \ ['27', '27'],
+            \ ['33', '33'],
+            \ ['49', '49'],
+            \ ['148', '148'],
+            \ ['190', '190'],
+            \ ['214', '214'],
+            \ ['219', '219'],
+        \ ]
+
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
     " }
     
     " Key Mappings {
@@ -262,18 +292,23 @@ let g:start_dir=getcwd()
 
 " C++ {
 " Settings {
-    autocmd FileType cpp set tabstop=2
-    autocmd FileType cpp set softtabstop=2
-    autocmd FileType cpp set shiftwidth=2
-    autocmd FileType cpp set expandtab
+    autocmd FileType cpp setlocal ts=2 sts=2 sw=2
     
     " C++11
     let g:syntastic_cpp_compiler_options = ' -std=c++11'
 " }
 " }
 
+" Cucumber {
+" Settings {
+    autocmd FileType cucumber setlocal ts=2 sts=2 sw=2
+" }
+" }
+
 " PHP {
 " Settings {
+    autocmd FileType php setlocal ts=4 sts=4 sw=4
+
     " Auto completion
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
@@ -346,8 +381,9 @@ let g:start_dir=getcwd()
     " PHP Parsing & Checking commands
     autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
     autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
-    autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit %<CR>
-    autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpcs --standard=psr2 %<CR>
+    autocmd FileType php noremap <Leader>b :w!<CR>:!vendor/bin/behat<CR>
+    autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit<CR>
+    autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpspec run<CR>
 
     "nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
     nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
@@ -363,6 +399,11 @@ let g:start_dir=getcwd()
 " Javascript {
     " 2 space indents
     autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+" }
+
+" Coffeescript {
+    " 2 space indents
+    autocmd FileType coffee setlocal ts=2 sts=2 sw=2
 " }
 
 " HTML {

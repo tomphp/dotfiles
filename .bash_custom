@@ -18,7 +18,7 @@ PATH=~/go/bin:/usr/local/go/bin:$PATH
 export GOPATH=~/go
 
 # scala
-PATH=/usr/local/sbt/bin/:/usr/local/scala/bin/:$PATH
+PATH=/usr/local/scala/bin/:$PATH
 
 # Powerline
 POWERLINE_DIR=~/.local/lib/python2.7/site-packages/powerline/
