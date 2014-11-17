@@ -8,7 +8,7 @@
 " - and others...
 
 
-" Setup & Bundles {
+" Setup & Plugins {
     set nocompatible               " Use the new stuff
     filetype off                   " Turned back on after loading bundles
 
@@ -17,78 +17,78 @@
     "endif
 
     " Forgotten why this is here?
-    set rtp+=~/.vim/bundle/vundle/
+    set rtp+=~/.vim/bundle/Vundle.vim/
     call vundle#rc()
 
     " let Vundle manage Vundle
     " required! 
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/vundle'
 
     " Navigating
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'scrooloose/nerdtree'
-    "Bundle 'Lokaltog/powerline', 'develop'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'christoomey/vim-tmux-navigator'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'scrooloose/nerdtree'
+    "Plugin 'Lokaltog/powerline', 'develop'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'christoomey/vim-tmux-navigator'
 
     " Editing
-    Bundle 'tpope/vim-surround'
-    Bundle 'godlygeek/tabular'
+    Plugin 'tpope/vim-surround'
+    Plugin 'godlygeek/tabular'
 
     " Theme
-    Bundle 'Lucius', '7.1.1'
-    "Bundle 'altercation/vim-colors-solarized'
-    "Bundle 'spf13/vim-colors'
-    Bundle 'groenewege/vim-less'
-    Bundle 'kien/rainbow_parentheses.vim'
+    Plugin 'Lucius', '7.1.1'
+    "Plugin 'altercation/vim-colors-solarized'
+    "Plugin 'spf13/vim-colors'
+    Plugin 'groenewege/vim-less'
+    Plugin 'kien/rainbow_parentheses.vim'
 
     " Spelling & Grammar
-    Bundle "vim-scripts/LanguageTool"
+    Plugin 'vim-scripts/LanguageTool'
 
     " PHP
-    "Bundle 'Valloric/YouCompleteMe'
-    Bundle 'StanAngeloff/php.vim'
-    Bundle 'shawncplus/phpcomplete.vim'
-    Bundle 'tomphp/vim-phpdoc'
-    Bundle 'arnaud-lb/vim-php-namespace'
-    Bundle 'scrooloose/syntastic.git'
-    Bundle 'joonty/vdebug'
-    Bundle 'stephpy/vim-php-cs-fixer'
-    Bundle 'vim-php/vim-php-refactoring'
+    "Plugin 'Valloric/YouCompleteMe'
+    Plugin 'StanAngeloff/php.vim'
+    Plugin 'shawncplus/phpcomplete.vim'
+    Plugin 'tomphp/vim-phpdoc'
+    Plugin 'arnaud-lb/vim-php-namespace'
+    Plugin 'scrooloose/syntastic.git'
+    Plugin 'joonty/vdebug'
+    Plugin 'stephpy/vim-php-cs-fixer'
+    Plugin 'vim-php/vim-php-refactoring'
 
     " Coffeescript
-    Bundle 'kchmck/vim-coffee-script'
+    Plugin 'kchmck/vim-coffee-script'
 
     " Clojure
-    Bundle 'tpope/vim-fireplace'
+    Plugin 'tpope/vim-fireplace'
 
     " Twig syntax
-    Bundle 'lunaru/vim-twig'
+    Plugin 'lunaru/vim-twig'
 
     " Used for vim debug
-    Bundle 'tyru/open-browser.vim'
+    Plugin 'tyru/open-browser.vim'
 
     " Git
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'mattn/webapi-vim'
-    Bundle 'mattn/gist-vim'
-    Bundle 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'mattn/webapi-vim'
+    Plugin 'mattn/gist-vim'
+    Plugin 'airblade/vim-gitgutter'
 
     " Puppet syntax
-    Bundle 'rodjek/vim-puppet'
+    Plugin 'rodjek/vim-puppet'
 
     " Snipmate dependencies
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'tomphp/vim-snippets'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'tomphp/vim-snippets'
 
     " SnipMate
-    "Bundle 'garbas/vim-snipmate'
-    Bundle 'SirVer/ultisnips'
+    "Plugin 'garbas/vim-snipmate'
+    Plugin 'SirVer/ultisnips'
 
     " Scala
-    Bundle 'derekwyatt/vim-scala'
+    Plugin 'derekwyatt/vim-scala'
 " }
 
 " Save the directory we started in
