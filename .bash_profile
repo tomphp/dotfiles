@@ -19,3 +19,8 @@ alias lsd="echo That\\'s some trippy shit!"
 alias r="phpspec run"
 alias spec="phpspec desc"
 alias v="vim"
+
+# bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
