@@ -61,6 +61,7 @@
     Plugin 'kchmck/vim-coffee-script'
 
     " Clojure
+    Plugin 'guns/vim-clojure-static'
     Plugin 'tpope/vim-fireplace'
 
     " Twig syntax
@@ -370,24 +371,28 @@ let g:start_dir=getcwd()
     "autocmd FileType php inoremap <C-=>> =>
 
     " phpDoc
-    autocmd FileType php inoremap <Leader>d <ESC>:call PhpDocSingle()<CR>i 
-    autocmd FileType php nnoremap <Leader>d  :call PhpDocSingle()<CR> 
-    autocmd FileType php vnoremap <Leader>d :call PhpDocRange()<CR>
+    autocmd FileType php inoremap <buffer> <LocalLeader>d <ESC>:call PhpDocSingle()<CR>i 
+    autocmd FileType php nnoremap <buffer> <LocalLeader>d :call PhpDocSingle()<CR> 
+    autocmd FileType php vnoremap <buffer> <LocalLeader>d :call PhpDocRange()<CR>
 
     " PHP Namespace remaps
-    autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
-    autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>n :call PhpInsertUse()<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>e :call PhpExpandClass()<CR>
 
     " PHP Parsing & Checking commands
-    autocmd FileType php noremap <C-M> :w!<CR>:!php %<CR>
-    autocmd FileType php noremap <Leader>l :w!<CR>:!php -l %<CR>
-    autocmd FileType php noremap <Leader>b :w!<CR>:!vendor/bin/behat<CR>
-    autocmd FileType php noremap <Leader>u :w!<CR>:!vendor/bin/phpunit<CR>
-    autocmd FileType php noremap <Leader>s :w!<CR>:!vendor/bin/phpspec run<CR>
+    autocmd FileType php noremap <buffer> <C-M> :w!<CR>:!php %<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>l :w!<CR>:!php -l %<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>u :w!<CR>:!vendor/bin/phpunit<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>s :w!<CR>:!vendor/bin/phpspec run -v<CR>
 
-    "nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
-    nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
-    "execute "set tags=" . g:project_tags
+    " Cucumber
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat %<CR>
+
+    "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
+    "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
+    autocmd FileType php nnoremap <buffer> <f8> :exe ':!phpctags --flags="+aim" --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --memory=-1 --recurse=yes -f "' . g:project_tags .'" .'<CR>
+    autocmd FileType php nnoremap <buffer> execute "set tags=" . g:project_tags
 " }
 " }
 "
