@@ -31,6 +31,8 @@
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'christoomey/vim-tmux-navigator'
+    Bundle 'Shougo/neocomplcache.vim'
+    Bundle 'JazzCore/neocomplcache-ultisnips'
 
     " Editing
     Bundle 'tpope/vim-surround'
@@ -47,7 +49,6 @@
     Bundle "vim-scripts/LanguageTool"
 
     " PHP
-    "Bundle 'Valloric/YouCompleteMe'
     Bundle 'StanAngeloff/php.vim'
     Bundle 'shawncplus/phpcomplete.vim'
     Bundle 'tomphp/vim-phpdoc'
@@ -62,6 +63,8 @@
 
     " Clojure
     Bundle 'tpope/vim-fireplace'
+    Bundle 'guns/vim-clojure-static'
+    Bundle 'guns/vim-clojure-highlight'
 
     " Twig syntax
     Bundle 'lunaru/vim-twig'
@@ -270,6 +273,12 @@ let g:start_dir=getcwd()
     " CtrlP {
         let g:ctrlp_max_files=50000
     " }
+    
+    " neocomplcache {
+        let g:acp_enableAtStartup = 0
+        let g:neocomplcache_enable_at_startup = 1
+        let g:neocomplcache_min_syntax_length = 3
+    " }
 
     " Powerline {
         " Hurry up powerline when exiting insert mode
@@ -287,6 +296,11 @@ let g:start_dir=getcwd()
         python from powerline.vim import setup as powerline_setup
         python powerline_setup()
         python del powerline_setup
+    " }
+    
+    " LanguageTool {
+        let g:languagetool_jar='$HOME/Applications/LanguageTool-2.6/languagetool-commandline.jar'
+        let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,MORFOLOGIK_RULE_EN_GB,COMMA_PARENTHESIS_WHITESPACE'
     " }
 " }
 
@@ -409,6 +423,11 @@ let g:start_dir=getcwd()
 " HTML {
     " 2 space indents
     autocmd FileType html setlocal ts=2 sts=2 sw=2
+" }
+
+" Text {
+    autocmd FileType text setlocal spell spelllang=en_gb
+    autocmd FileType markdown setlocal spell spelllang=en_gb
 " }
 
 " Utilities
