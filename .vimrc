@@ -31,8 +31,8 @@
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'Shougo/neocomplcache.vim'
-    Plugin 'JazzCore/neocomplcache-ultisnips'
+    "Plugin 'Shougo/neocomplcache.vim'
+    "Plugin 'JazzCore/neocomplcache-ultisnips'
 
     " Editing
     Plugin 'tpope/vim-surround'
@@ -148,7 +148,8 @@ let g:start_dir=getcwd()
 
         " Enable Code Folding
         set foldenable
-        set foldmethod=syntax
+        set foldmethod=indent
+        set foldlevelstart=5
 
         " Highlight the cursorline
         set cursorline
@@ -211,6 +212,10 @@ let g:start_dir=getcwd()
         "Navigate wrapped lines
         nnoremap j gj
         nnoremap k gk
+
+        " Buffer navigation
+        nnoremap <Tab> :bnext<CR>
+        nnoremap <S-Tab> :bprev<CR>
 
         " Save as root
         cnoremap w!! %!sudo tee > /dev/null %
@@ -430,9 +435,13 @@ let g:start_dir=getcwd()
     autocmd FileType html setlocal ts=2 sts=2 sw=2
 " }
 
+" Markdown {
+    autocmd BufNewFile,BufRead *.md set filetype=markdown
+    autocmd FileType markdown setlocal spell spelllang=en_gb
+" }
+
 " Text {
     autocmd FileType text setlocal spell spelllang=en_gb
-    autocmd FileType markdown setlocal spell spelllang=en_gb
 " }
 
 " Utilities
