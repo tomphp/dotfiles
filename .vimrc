@@ -268,6 +268,9 @@ let g:start_dir=getcwd()
         " Select all
         noremap <Leader>a ggVG
 
+        " Search Project
+        noremap <leader>g :Ag <C-r><C-w><CR>
+
         " Move lines up and down (requires alt aka gvim)
         nnoremap <A-j> :m .+1<CR>==
         nnoremap <A-k> :m .-2<CR>==
@@ -277,10 +280,14 @@ let g:start_dir=getcwd()
         vnoremap <A-k> :m '<-2<CR>gv=gv
     " }
 
+    " Ag {
+        let g:agprg="ag --ignore tags --column"
+    " }
+
     " CtrlP {
         let g:ctrlp_max_files=50000
     " }
-    
+
     " neocomplcache {
         let g:acp_enableAtStartup = 0
         let g:neocomplcache_enable_at_startup = 1
