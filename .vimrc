@@ -33,6 +33,7 @@
     Plugin 'christoomey/vim-tmux-navigator'
     "Plugin 'Shougo/neocomplcache.vim'
     "Plugin 'JazzCore/neocomplcache-ultisnips'
+    Plugin 'rking/ag.vim'
 
     " Editing
     Plugin 'tpope/vim-surround'
@@ -348,7 +349,8 @@ let g:start_dir=getcwd()
     let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
 
     " Ctags generation
-    let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
+    "let g:project_tags='~/.vim.tags/' . substitute(g:start_dir, "/", ".", "g")
+    let g:project_tags='tags'
 
     " Refactoring
     let g:php_refactor_command='php ~/bin/refactor.phar'
@@ -410,8 +412,9 @@ let g:start_dir=getcwd()
 
     "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
     "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
-    autocmd FileType php nnoremap <buffer> <f8> :exe ':!phpctags --flags="+aim" --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --memory=-1 --recurse=yes -f "' . g:project_tags .'" .'<CR>
-    autocmd FileType php nnoremap <buffer> execute "set tags=" . g:project_tags
+    "autocmd FileType php nnoremap <buffer> <f8> :exe ':!phpctags --flags="+aim" --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --memory=-1 --recurse=yes -f "' . g:project_tags .'" .'<CR>
+    autocmd FileType php nnoremap <buffer> <f8> :exe ':!~/dotfiles/php-ctags "' . g:project_tags .'"'<CR>
+    "autocmd FileType php nnoremap <buffer> execute "set tags=" . g:project_tags
 " }
 " }
 "
