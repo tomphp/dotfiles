@@ -2,7 +2,7 @@
 PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # Run composer & node executables
-PATH=./vendor/bin:$PATH
+PATH=./vendor/bin:~/.composer/vendor/bin:$PATH
 
 # Powerline
 . $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh

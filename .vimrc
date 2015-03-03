@@ -1,4 +1,4 @@
-" This is my personal vim config.
+"t This is my personal vim config.
 "
 " Tom Oram - http://github.com/tomphp - <tom@x2k.co.uk>
 "
@@ -210,6 +210,9 @@ let g:start_dir=getcwd()
     " }
     
     " Key Mappings {
+        let mapleader = "`" 
+        let maplocalleader = "\\"
+
         "Navigate wrapped lines
         nnoremap j gj
         nnoremap k gk
@@ -409,9 +412,9 @@ let g:start_dir=getcwd()
 
     " PHP Parsing & Checking commands
     autocmd FileType php noremap <buffer> <C-M> :w!<CR>:!php %<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>l :w!<CR>:!php -l %<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>s :w!<CR>:!php -l %<CR>
     autocmd FileType php noremap <buffer> <LocalLeader>b :w!<CR>:!vendor/bin/behat<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>u :w!<CR>:!vendor/bin/phpunit<CR>
+    autocmd FileType php noremap <buffer> <LocalLeader>u:wq :w!<CR>:!vendor/bin/phpunit<CR>
     autocmd FileType php noremap <buffer> <LocalLeader>s :w!<CR>:!vendor/bin/phpspec run -v<CR>
 
     " Cucumber
