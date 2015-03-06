@@ -14,6 +14,8 @@
 
 if isdirectory($HOME."/.vim")
     source $HOME/dotfiles/vim/bundles.vim
+
+    let g:fat_install=1
 endif
 
 source $HOME/dotfiles/vim/globals.vim

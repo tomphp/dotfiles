@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ln .vimrc
+# ln .tmux
+# ln .config/powerline if fatmode
+# ln .gitconfig
+# ln .gitignore
+# install vundle if fatmode
+# +BundleInstall if fatmode
+
 exit
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
