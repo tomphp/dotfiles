@@ -1,0 +1,2 @@
+# Run composer executables
+PATH=./vendor/bin:$HOME/.composer/vendor/bin:$PATH

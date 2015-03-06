@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BACKUP_DIR=~/dotfiles_backup
 

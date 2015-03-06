@@ -1,0 +1,17 @@
+# vim: syntax=sh
+
+# Aliases
+alias ls='ls -G'
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias ssh="TERM=xterm ssh"
+
+# Silly & Fun
+alias lsd="echo That\\'s some trippy shit!"
+alias fucking="sudo"
+
+# PHP related
+alias r="phpspec run"
+alias spec="phpspec desc"
+alias v="vim"
