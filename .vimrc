@@ -264,7 +264,7 @@ let g:start_dir=getcwd()
 
         " NERDTree Mappings
         "autocmd vimenter * if !argc() | NERDTree | endif
-        noremap <Leader>t :NERDTreeToggle<CR>
+        noremap <Leader>b :NERDTreeToggle<CR>
 
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -489,3 +489,11 @@ function! Debug(url)
     python debugger.run()
 endfunction
 command! -nargs=1 Debug call Debug('<args>')
+
+function! DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
+endfunction
