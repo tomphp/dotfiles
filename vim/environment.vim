@@ -50,7 +50,9 @@
     set foldlevelstart=5
 
     " Highlight the cursorline
-    set cursorline
+    if exists("g:plugins_installed")
+        set cursorline
+    endif
 
     " Spell checking
     "set spell

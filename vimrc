@@ -9,6 +9,8 @@
 
 
 if isdirectory($HOME."/.vim")
+    let g:plugins_installed = 1
+
     source $HOME/.dotfiles/vim/bundles.vim
     source $HOME/.dotfiles/vim/bundle_globals.vim
 endif
