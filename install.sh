@@ -86,7 +86,7 @@ function move_directory {
 
 function backup_and_link {
     link="$HOME/$1"
-    actual=".dotfiles/$2"
+    actual="$HOME/.dotfiles/$2"
 
     backup_dir="$HOME/.dotfiles/backup"
 
@@ -97,7 +97,6 @@ function backup_and_link {
 
     if [ -f "$link" ]; then
         echo "- Backing up $link"
-        mv "$link" "$backup_dir"
         mv "$link" "$backup_dir"
     fi
 
