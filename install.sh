@@ -1,48 +1,159 @@
 #!/bin/bash
 
-# ln .vimrc
-# ln .tmux
-# ln .config/powerline if fatmode
-# ln .gitconfig
-# ln .gitignore
-# install vundle if fatmode
-# +BundleInstall if fatmode
-
-exit
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-BACKUP_DIR=~/dotfiles_backup
+BACKUP_DIR=$DIR/backup
 
-echo "Existing files will be backed up to $BACKUP_DIR"
-echo "Installation directory is $DIR"
+show_help=off
+full_install=off
+vim_only=off
+with_vim_plugins=off
+with_git=off
+with_tmux=off
+with_powerline=off
 
-echo 
-
-mkdir -p $BACKUP_DIR/.config
-
-for FILE in .vimrc .bash_aliases .bash_custom .config/powerline .tmux.conf
+# Gather command line options
+while [ $# -gt 0 ]
 do
-    if [ -e ~/$FILE ]; then
-        echo "Backing up $FILE"
-        mv ~/$FILE $BACKUP_DIR/$FILE
-    fi
-
-    echo "Creating soft link for $FILE"
-    ln -s $DIR/$FILE ~/$FILE
+    case "$1" in
+        --with-git) with_git=on;;
+        --with-tmux) with_tmux=on;;
+        --with-powerline) with_powerline=on;;
+        --full-install) full_install=on;;
+        --vim-only) vim_only=on;;
+        *) show_help=on;;
+    esac
+    shift
 done
 
-# Create the tags directory
-#mkdir ~/.vim.tags
+function show_help {
+    echo "Tom Oram's dotfiles installer"
+    echo "./install.sh --full-install|--vim-only [--with-git --with-tmux --with-powerline]"
+    echo
+    echo "This installer does not install vim, tmux, powerline or git - it"
+    echo "simply installs the config."
+    echo
+    echo "When this script is run, this directory will be moved to"
+    echo "$HOME/.dotfiles"
+    echo
+    echo "Any existing config files will then be moved to"
+    echo "$HOME/.dotfiles/backup"
+    echo
+    echo "--vim-only installs only the VIM config with no VIM plugins. To"
+    echo "install plugins or config for the other applications, use the"
+    echo "--with-* arguments."
+    echo
+    echo "--full-install is the same as --vim-only with all --with-*"
+    echo "arguments provided also."
 
-# Install bundles
-echo git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-echo vim +BundleInstall +qall
+    exit 1
+}
 
-echo "Make sure you have added the following code to you .bashrc file"
+function verify_arguments {
+    if [ $vim_only = "off" ] && [ $full_install = "off" ]; then
+        echo "You must choose --vim-only OR --full-install!"
+        echo
+        show_help=on
+    fi
 
-echo
+    if [ $vim_only = "on" ] && [ $full_install = "on" ]; then
+        echo "You must choose --vim-only OR --full-install!"
+        echo
+        show_help=on
+    fi
 
-echo "# Custom bash settings
-if [ -f ~/.bash_custom ]; then
-    . ~/.bash_custom
-fi"
+    if [ $full_install = "on" ]; then
+        with_vim_plugins=on
+        with_git=on
+        with_tmux=on
+        with_powerline=on
+    fi
+
+    if [ $show_help = "on" ]; then
+        show_help
+    fi
+}
+
+function move_directory {
+    if [ -f  $HOME/.dotfiles ]; then
+        echo "$HOME/.dotfiles already exists."
+        exit 2
+    fi
+
+    cd "$HOME"
+    mv "$DIR" "$HOME/.dotfiles"
+    cd "$HOME/.dotfiles"
+}
+
+function backup_and_link {
+    link="$HOME/$1"
+    actual=".dotfiles/$2"
+
+    backup_dir="$HOME/.dotfiles/backup"
+
+    if [ ! -f "$backup_dir" ]; then
+        echo "- Creating backup directory $backup_dir"
+        mkdir "$backup_dir"
+    fi
+
+    if [ -f "$link" ]; then
+        echo "- Backing up $link"
+        mv "$link" "$backup_dir"
+        mv "$link" "$backup_dir"
+    fi
+
+    echo "- Linking $link to $actual"
+    ln -s "$actual" "$link"
+}
+
+function install_bash_profile {
+    echo "Installing .bash_profile"
+    backup_and_link .bash_profile bash_profile
+}
+
+function install_vim_config {
+    echo "Installing VIM config"
+    backup_and_link .vimrc vimrc
+}
+
+function install_vim_plugins {
+    echo "Installing VIM plugins"
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    vim +BundleInstall +qall
+}
+
+function install_powerline_config {
+    echo "Installing powerline config"
+    backup_and_link .config/powerline powerline
+}
+
+function install_git_config {
+    echo "Installing git config"
+    backup_and_link .gitconfig gitconfig
+    backup_and_link .gitignore global_gitignore
+}
+
+function install_tmux_config {
+    echo "Installing tmux config"
+    backup_and_link .tmux.conf tmux.conf
+}
+
+verify_arguments
+move_directory
+install_bash_profile
+install_vim_config
+
+if [ $with_vim_plugins = "on" ]; then
+    install_vim_plugins
+fi
+
+if [ $with_powerline = "on" ]; then
+    install_powerline_config
+fi
+
+if [ $with_git = "on" ]; then
+    install_git_config
+fi
+
+if [ $with_tmux = "on" ]; then
+    install_tmux_config
+fi

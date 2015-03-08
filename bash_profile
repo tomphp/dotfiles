@@ -1,5 +1,7 @@
+# vim: syntax=sh
+
 # Location for custom bas config scripts
-CONFIG_DIR=$HOME/dotfiles/bash
+CONFIG_DIR=$HOME/.dotfiles/bash
 
 # Programming language specific settings
 . $CONFIG_DIR/php

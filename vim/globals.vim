@@ -50,19 +50,22 @@
 
 
 " Powerline {
-    " Hurry up powerline when exiting insert mode
-    if ! has('gui_running')
-        set ttimeoutlen=10
-        augroup FastEscape
-            autocmd!
-            au InsertEnter * set timeoutlen=0
-            au InsertLeave * set timeoutlen=1000
-        augroup END
-    endif
+    " Need to find a better way to check if powerline is installed
+    if isdirectory(expand($HOME."/.config"))
+        " Hurry up powerline when exiting insert mode
+        if ! has('gui_running')
+            set ttimeoutlen=10
+            augroup FastEscape
+                autocmd!
+                au InsertEnter * set timeoutlen=0
+                au InsertLeave * set timeoutlen=1000
+            augroup END
+        endif
 
-    " Powerline settings
-    "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-    python from powerline.vim import setup as powerline_setup
-    python powerline_setup()
-    python del powerline_setup
+        " Powerline settings
+        "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+        python from powerline.vim import setup as powerline_setup
+        python powerline_setup()
+        python del powerline_setup
+    endif
 " }
