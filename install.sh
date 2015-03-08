@@ -15,6 +15,7 @@ with_powerline=off
 while [ $# -gt 0 ]
 do
     case "$1" in
+        --with-vim-plugins) with_vim_plugins=on;;
         --with-git) with_git=on;;
         --with-tmux) with_tmux=on;;
         --with-powerline) with_powerline=on;;
@@ -27,7 +28,7 @@ done
 
 function show_help {
     echo "Tom Oram's dotfiles installer"
-    echo "./install.sh --full-install|--vim-only [--with-git --with-tmux --with-powerline]"
+    echo "./install.sh --full-install|--vim-only [--with-vim-plugins --with-git --with-tmux --with-powerline]"
     echo
     echo "This installer does not install vim, tmux, powerline or git - it"
     echo "simply installs the config."
