@@ -16,9 +16,6 @@
     set shortmess+=I                       " Disable splash text
     set t_Co=256                           " Fix colors in the terminal
     "set guifont=Anonymous\ Pro\ 10         " Way better than monospace
-    let g:lucius_style = 'dark'
-    silent color lucius                    " Vim colorscheme
-    let g:Powerline_colorscheme = 'lucious' " Powerline colorscheme
     set laststatus=2                       " Always show status bar
     set noshowmode                         " Hide default mode string
     set mousemodel=popup                   " Enable context menu

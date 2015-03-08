@@ -8,12 +8,9 @@
 " - and others...
 
 
-"if filereadable(expand("$VIMHOME/config.local.vim"))
-"    source $VIMHOME/config.local.vim
-"endif
-
 if isdirectory($HOME."/.vim")
     source $HOME/.dotfiles/vim/bundles.vim
+    source $HOME/.dotfiles/vim/bundle_globals.vim
 endif
 
 source $HOME/.dotfiles/vim/globals.vim
