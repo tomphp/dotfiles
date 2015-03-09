@@ -36,6 +36,9 @@
     set shiftwidth=4
     set expandtab
 
+    set ignorecase
+    set smartcase
+
     " Set Auto-indent options
     "set cindent
     "set smartindent

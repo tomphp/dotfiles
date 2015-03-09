@@ -70,3 +70,8 @@
         python del powerline_setup
     endif
 " }
+
+" vim-scala {
+    " Turn off default key mappings as it interfears with my key mappings
+    let g:scala_use_default_keymappings = 0
+" }

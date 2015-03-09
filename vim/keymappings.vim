@@ -29,7 +29,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Leader F for easymotion find anywhere
-noremap <Leader>f <Plug>(easymotion-s)
+map <Leader>f <Plug>(easymotion-s)
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
