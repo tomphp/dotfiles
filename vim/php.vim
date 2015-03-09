@@ -79,8 +79,8 @@ let g:php_cs_fixer_verbose = 1
     autocmd FileType php noremap <buffer> <LocalLeader>ts :w!<CR>:!vendor/bin/phpspec run -v -fpretty<CR>
 
     " Cucumber
-    autocmd FileType cucumber noremap <buffer> <LocalLeader>rs :w!<CR>:!vendor/bin/behat %<CR>
-    autocmd FileType cucumber noremap <buffer> <LocalLeader>ra :w!<CR>:!vendor/bin/behat<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>rf :w!<CR>:!vendor/bin/behat %<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>rs :w!<CR>:!vendor/bin/behat<CR>
 
     "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!ctags-exuberant -f ' . g:project_tags . ' -h \".php\" -R --exclude=\"\.git\" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf'<CR>
     "autocmd FileType php nnoremap <buffer> nnoremap <f8> :exe ':!phpctags -h ".php" -R --exclude=".git" --exclude="vendor/pdepend" --exclude="composer.phar" --sort=yes --tag-relative=yes --fields=+aimS --languages=php'<CR>
