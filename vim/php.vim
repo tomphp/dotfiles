@@ -25,7 +25,7 @@ let g:syntastic_php_checkers=['php', 'vendor/bin/phpcs', 'vendor/bin/phpmd']
 let g:project_tags='tags'
 
 " Refactoring
-let g:php_refactor_command='php ~/bin/refactor.phar'
+let g:php_refactor_command='php ~/.dotfiles/bin/refactor.phar'
 
 " CS Fixer
 let g:php_cs_fixer_path = "php-cs-fixer" 
