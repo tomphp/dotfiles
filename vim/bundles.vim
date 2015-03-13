@@ -82,3 +82,7 @@ Plugin 'SirVer/ultisnips'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
+
+" Gmail
+Plugin 'Shougo/vimproc'
+Plugin 'yuratomo/gmail.vim'
