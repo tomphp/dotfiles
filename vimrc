@@ -36,3 +36,7 @@ if filereadable(expand("./.vimpj.vim"))
     source ./.vimpj.vim
 endif
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

@@ -88,5 +88,4 @@
     "set backup          " Enable Backups
     "set backupext=.bak  " Add .bak extension to modified files
     "set patchmode=.orig " Copy original file to with .orig extension Before saving.
-    
 " }

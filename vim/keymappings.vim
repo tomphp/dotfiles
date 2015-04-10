@@ -1,4 +1,7 @@
 " vim: syntax=vim
+"
+"
+"
 
 let mapleader = "`" 
 let maplocalleader = "\\"
@@ -27,6 +30,9 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Search for currently selected text
+vnoremap // y/<C-R>"<CR>
 
 " Leader F for easymotion find anywhere
 map <Leader>f <Plug>(easymotion-s)

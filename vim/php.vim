@@ -79,8 +79,9 @@ let g:php_cs_fixer_verbose = 1
     autocmd FileType php noremap <buffer> <LocalLeader>ts :w!<CR>:!vendor/bin/phpspec run -v -fpretty<CR>
 
     " Cucumber
-    autocmd FileType cucumber noremap <buffer> <LocalLeader>rf :w!<CR>:!vendor/bin/behat %<CR>
-    autocmd FileType cucumber noremap <buffer> <LocalLeader>rs :w!<CR>:!vendor/bin/behat<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>tf :w!<CR>:!vendor/bin/behat %<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>ts :w!<CR>{j^Wy$:!vendor/bin/behat % --name "<C-R>""<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>ta :w!<CR>:!vendor/bin/behat<CR>
 
     " Tags
     if (executable('ctags')) 

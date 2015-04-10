@@ -37,6 +37,9 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Spelling & Grammar
 Plugin 'vim-scripts/LanguageTool'
 
+" HTML
+Plugin 'mattn/emmet-vim'
+
 " PHP
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'StanAngeloff/php.vim'
@@ -52,12 +55,13 @@ Plugin 'vim-php/vim-php-refactoring'
 Plugin 'kchmck/vim-coffee-script'
 
 " Clojure
+Plugin 'vim-scripts/paredit.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'tpope/vim-fireplace'
 
 " Twig syntax
-Plugin 'lunaru/vim-twig'
+Plugin 'evidens/vim-twig'
 
 " Used for vim debug
 Plugin 'tyru/open-browser.vim'
