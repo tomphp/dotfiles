@@ -110,6 +110,11 @@ function install_bash_profile {
     backup_and_link .bash_profile bash_profile
 }
 
+function install_zsh_profile {
+    echo "Installing .zshrc"
+    backup_and_link .zshrc zshrc
+}
+
 function install_vim_config {
     echo "Installing VIM config"
     backup_and_link .vimrc vimrc
@@ -140,6 +145,7 @@ function install_tmux_config {
 verify_arguments
 move_directory
 install_bash_profile
+install_zsh_profile
 install_vim_config
 
 if [ $with_vim_plugins = "on" ]; then

@@ -6,6 +6,10 @@
 				"priority": 10
 			},
 			{
+				"function": "powerline.segments.shell.mode",
+				"priority": 20
+			},
+			{
 				"function": "powerline.segments.common.env.user",
 				"priority": 30
 			},

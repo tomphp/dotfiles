@@ -28,6 +28,7 @@ source $HOME/.dotfiles/vim/html.vim
 source $HOME/.dotfiles/vim/javascript.vim
 source $HOME/.dotfiles/vim/markdown.vim
 source $HOME/.dotfiles/vim/php.vim
+source $HOME/.dotfiles/vim/ruby.vim
 source $HOME/.dotfiles/vim/scala.vim
 source $HOME/.dotfiles/vim/text.vim
 
