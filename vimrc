@@ -24,7 +24,7 @@ source $HOME/.dotfiles/vim/keymappings.vim
 source $HOME/.dotfiles/vim/coffeescript.vim
 source $HOME/.dotfiles/vim/cpp.vim
 source $HOME/.dotfiles/vim/cucumber.vim
-source $HOME/.dotfiles/vim/html.vim
+source $HOME/.dotfiles/vim/web.vim
 source $HOME/.dotfiles/vim/javascript.vim
 source $HOME/.dotfiles/vim/markdown.vim
 source $HOME/.dotfiles/vim/php.vim
