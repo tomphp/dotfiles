@@ -7,10 +7,15 @@ CONFIG_DIR=$HOME/.dotfiles/terminal
 . $CONFIG_DIR/php
 . $CONFIG_DIR/python
 . $CONFIG_DIR/ruby
+. $CONFIG_DIR/node
+. $CONFIG_DIR/go
 
 # Terminal settings
 . $CONFIG_DIR/$MY_SHELL"_only"
 . $CONFIG_DIR/aliases
+
+# Default Editor
+export EDITOR='vim'
 
 vim()
 {

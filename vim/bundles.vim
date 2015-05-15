@@ -60,6 +60,8 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'tpope/vim-fireplace'
 
+Plugin 'tpope/vim-endwise'
+
 " Twig syntax
 Plugin 'evidens/vim-twig'
 
@@ -73,7 +75,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'airblade/vim-gitgutter'
 
 " Puppet syntax
-Plugin 'rodjek/vim-puppet'
+"Plugin 'rodjek/vim-puppet'
 
 " Snipmate dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
