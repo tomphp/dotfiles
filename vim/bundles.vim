@@ -84,11 +84,14 @@ Plugin 'tomphp/vim-snippets'
 
 " SnipMate
 "Plugin 'garbas/vim-snipmate'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
 " Gmail
-Plugin 'Shougo/vimproc'
-Plugin 'yuratomo/gmail.vim'
+"Plugin 'Shougo/vimproc'
+"Plugin 'yuratomo/gmail.vim'
+
+" Colour table
+Plugin 'guns/xterm-color-table.vim'

@@ -3,6 +3,8 @@
 # Location for custom bas config scripts
 CONFIG_DIR=$HOME/.dotfiles/terminal
 
+PATH=./bin:$PATH
+
 # Programming language specific settings
 . $CONFIG_DIR/php
 . $CONFIG_DIR/python
@@ -13,6 +15,10 @@ CONFIG_DIR=$HOME/.dotfiles/terminal
 # Terminal settings
 . $CONFIG_DIR/$MY_SHELL"_only"
 . $CONFIG_DIR/aliases
+
+if [ -e ~/.local-profile ]; then
+    . ~/.local-profile
+fi
 
 # Default Editor
 export EDITOR='vim'
