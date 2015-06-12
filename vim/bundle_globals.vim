@@ -8,14 +8,20 @@
     let g:agprg="ag --ignore tags --column"
 " }
 
-" CtrlP {
-    "let g:ctrlp_max_files=50000
+" neocomplete {
+    let g:neocomplete#enable_at_startup = 1
 " }
 
-" neocomplcache {
-    let g:acp_enableAtStartup = 0
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_min_syntax_length = 3
+" neosnippet {
+    " Plugin key-mappings.
+    imap <C-j> <Plug>(neosnippet_expand_or_jump)
+    smap <C-j> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-j> <Plug>(neosnippet_expand_target)
+    
+    " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=niv
+    endif
 " }
 
 " LanguageTool {

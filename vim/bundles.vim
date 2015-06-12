@@ -24,8 +24,9 @@ Plugin 'Shougo/vimfiler.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'Shougo/neocomplcache.vim'
-"Plugin 'JazzCore/neocomplcache-ultisnips'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'rking/ag.vim'
 
 " Editing
@@ -34,8 +35,6 @@ Plugin 'godlygeek/tabular'
 
 " Theme
 Plugin 'Lucius', '7.1.1'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'spf13/vim-colors'
 Plugin 'groenewege/vim-less'
 Plugin 'kien/rainbow_parentheses.vim'
 
@@ -85,7 +84,7 @@ Plugin 'airblade/vim-gitgutter'
 " Snipmate dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'tomphp/vim-snippets'
+"Plugin 'tomphp/vim-snippets'
 
 " SnipMate
 "Plugin 'garbas/vim-snipmate'
