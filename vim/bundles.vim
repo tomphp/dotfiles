@@ -12,9 +12,14 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'Shougo/vimproc'
+
 " Navigating
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'wincent/Command-T'
+"Plugin 'scrooloose/nerdtree'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler.vim'
 "Plugin 'Lokaltog/powerline', 'develop'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
@@ -90,7 +95,6 @@ Plugin 'tomphp/vim-snippets'
 Plugin 'derekwyatt/vim-scala'
 
 " Gmail
-"Plugin 'Shougo/vimproc'
 "Plugin 'yuratomo/gmail.vim'
 
 " Colour table

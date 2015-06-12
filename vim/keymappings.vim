@@ -42,6 +42,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Ctrl+P for Unite
+nnoremap <silent> <C-p> :CommandT<CR>
+
 " CTRL+S for save
 
 " If the current buffer has never been saved, it will have no name,
@@ -61,9 +64,8 @@ inoremap <c-s> <c-o>:Update<CR>
 "imap <c-Space> <c-x><c-o>
 "imap <C-@> <C-Space>
 
-" NERDTree Mappings
-"autocmd vimenter * if !argc() | NERDTree | endif
-noremap <Leader>b :NERDTreeToggle<CR>
+" VimFiler Mappings
+noremap <Leader>b :VimFilerExplorer<CR>
 
 " Select all
 noremap <Leader>a ggVG
