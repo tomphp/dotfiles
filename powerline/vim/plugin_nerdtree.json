@@ -1,14 +1,13 @@
 {
+	"default_module": "powerline.segments.vim.plugin.nerdtree",
 	"segments": {
 		"left": [
 			{
-				"type": "string",
-				"highlight_group": ["gundo.name", "file_name"],
-				"contents": "Undo tree"
+				"function": "nerdtree"
 			},
 			{
 				"type": "string",
-				"highlight_group": ["gundo.background", "background"],
+				"highlight_groups": ["background"],
 				"draw_soft_divider": false,
 				"draw_hard_divider": false,
 				"width": "auto"
