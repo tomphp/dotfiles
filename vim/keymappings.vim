@@ -64,8 +64,8 @@ inoremap <c-s> <c-o>:Update<CR>
 "imap <c-Space> <c-x><c-o>
 "imap <C-@> <C-Space>
 
-" VimFiler Mappings
-noremap <Leader>b :VimFilerExplorer<CR>
+" NERDTree Mappings
+noremap <Leader>b :NERDTreeToggle<CR>
 
 " Select all
 noremap <Leader>a ggVG

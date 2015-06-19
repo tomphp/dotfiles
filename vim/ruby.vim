@@ -1,4 +1,5 @@
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+autocmd FileType eruby setlocal ts=2 sts=2 sw=2
 
 hi rubySymbol ctermfg=111
 

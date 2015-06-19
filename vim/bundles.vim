@@ -17,16 +17,14 @@ Plugin 'Shougo/vimproc'
 " Navigating
 "Plugin 'kien/ctrlp.vim'
 Plugin 'wincent/Command-T'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler.vim'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'Lokaltog/powerline', 'develop'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'Shougo/neosnippet.vim'
+"Plugin 'Shougo/neosnippet-snippets'
 Plugin 'rking/ag.vim'
 
 " Editing
@@ -84,11 +82,11 @@ Plugin 'airblade/vim-gitgutter'
 " Snipmate dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-"Plugin 'tomphp/vim-snippets'
+Plugin 'tomphp/vim-snippets'
 
 " SnipMate
 "Plugin 'garbas/vim-snipmate'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'

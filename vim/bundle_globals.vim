@@ -9,19 +9,21 @@
 " }
 
 " neocomplete {
-    let g:neocomplete#enable_at_startup = 1
+"   let g:neocomplete#enable_at_startup = 1
+"   let g:neocomplete#enable_smart_case = 1
+"   let g:neocomplete#auto_completion_start_length = 3
 " }
 
 " neosnippet {
-    " Plugin key-mappings.
-    imap <C-j> <Plug>(neosnippet_expand_or_jump)
-    smap <C-j> <Plug>(neosnippet_expand_or_jump)
-    xmap <C-j> <Plug>(neosnippet_expand_target)
-    
-    " For snippet_complete marker.
-    if has('conceal')
-      set conceallevel=2 concealcursor=niv
-    endif
+"   " Plugin key-mappings.
+"   imap <C-j> <Plug>(neosnippet_expand_or_jump)
+"   smap <C-j> <Plug>(neosnippet_expand_or_jump)
+"   xmap <C-j> <Plug>(neosnippet_expand_target)
+"   
+"   " For snippet_complete marker.
+"   if has('conceal')
+"     set conceallevel=2 concealcursor=niv
+"   endif
 " }
 
 " LanguageTool {
@@ -47,8 +49,12 @@
 
 " }
 
-" vimfiler {
-    let g:vimfiler_as_default_explorer = 1
+" CommandT {
+    let g:CommandTSmartCase = 1
+" }
+
+" NerdTree {
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " }
 
 " Powerline {
