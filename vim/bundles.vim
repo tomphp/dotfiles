@@ -22,7 +22,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 "Plugin 'Shougo/neosnippet.vim'
 "Plugin 'Shougo/neosnippet-snippets'
 Plugin 'rking/ag.vim'
@@ -30,6 +30,7 @@ Plugin 'rking/ag.vim'
 " Editing
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-commentary'
 
 " Theme
 Plugin 'Lucius', '7.1.1'

@@ -11,6 +11,7 @@ PATH=./bin:$PATH
 . $CONFIG_DIR/ruby
 . $CONFIG_DIR/node
 . $CONFIG_DIR/go
+. $CONFIG_DIR/haskell
 
 # Terminal settings
 . $CONFIG_DIR/$MY_SHELL"_only"
