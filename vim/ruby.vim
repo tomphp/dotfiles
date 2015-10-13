@@ -3,7 +3,10 @@ autocmd FileType eruby setlocal ts=2 sts=2 sw=2
 
 hi rubySymbol ctermfg=111
 
-autocmd FileType ruby noremap <buffer> <LocalLeader>ts :w!<CR>:!rspec<CR>
+autocmd FileType ruby let b:acceptance_test_command = 'bundle exec cucumber'
+autocmd FileType ruby let b:integration_test_command = 'bundle exec rspec spec/integration'
+autocmd FileType ruby let b:unit_test_command = 'bundle exec rspec spec/unit'
+autocmd FileType ruby let b:ci_test_command = 'bundle exec rake'
 
 " Tags
 if (executable('ctags')) 

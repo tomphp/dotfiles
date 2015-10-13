@@ -7,7 +7,6 @@
 " - Gianluca Arbezzano https://github.com/gianarb/.dotfiles
 " - and others...
 
-
 if isdirectory($HOME."/.vim")
     let g:plugins_installed = 1
 
@@ -34,6 +33,7 @@ source $HOME/.dotfiles/vim/text.vim
 source $HOME/.dotfiles/vim/haskell.vim
 
 source $HOME/.dotfiles/vim/filetypes.vim
+source $HOME/.dotfiles/vim/testing.vim
 
 " Use local vimrc if available
 if filereadable(expand("./.vimpj.vim"))

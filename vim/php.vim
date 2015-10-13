@@ -73,14 +73,16 @@ let g:php_cs_fixer_verbose = 1
 
     " PHP Parsing & Checking commands
     autocmd FileType php noremap <buffer> <C-M> :w!<CR>:!php %<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>tl :w!<CR>:!php -l %<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>ta :w!<CR>:!vendor/bin/behat<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>tu :w!<CR>:!vendor/bin/phpunit<CR>
-    autocmd FileType php noremap <buffer> <LocalLeader>ts :w!<CR>:!vendor/bin/phpspec run -v -fpretty<CR>
+
+    autocmd FileType php let b:lint_test_command = 'php -l %'
+    autocmd FileType php let b:acceptance_test_command = 'vendor/bin/behat'
+    autocmd FileType php let b:integration_test_command = 'vendor/bin/phpunit'
+    autocmd FileType php let b:unit_test_command = 'vendor/bin/phpspec run -v -fpretty'
+    autocmd FileType php let b:ci_test_command = 'composer test'
 
     " Cucumber
     autocmd FileType cucumber noremap <buffer> <LocalLeader>tf :w!<CR>:!vendor/bin/behat %<CR>
-    autocmd FileType cucumber noremap <buffer> <LocalLeader>ts :w!<CR>{j^Wy$:!vendor/bin/behat % --name "<C-R>""<CR>
+    autocmd FileType cucumber noremap <buffer> <LocalLeader>ts :w!<CR>:!vendor/bin/behat % --name "<C-R>""<CR>
     autocmd FileType cucumber noremap <buffer> <LocalLeader>ta :w!<CR>:!vendor/bin/behat<CR>
 
     " Tags
