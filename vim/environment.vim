@@ -30,6 +30,13 @@
     " Allow backspacing before the insert point
     set backspace=indent,eol,start
 
+    " Turn off matching parens :(
+    " I'd like this working but is causing massive slow down
+    " let loaded_matchparen = 1
+
+    " speed things up a little bit
+    "set ttyfast
+
     " Indentation settings
     set tabstop=4
     set softtabstop=4
@@ -54,6 +61,8 @@
 
     " Highlight the cursorline
     if exists("g:plugins_installed")
+        " Disabled cursor line
+        " I'd like this working but is causing massive slow down
         set cursorline
     endif
 

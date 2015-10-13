@@ -1,7 +1,7 @@
 " Luscious color scheme {
     let g:lucius_style = 'dark'
     silent color lucius                    " Vim colorscheme
-    let g:Powerline_colorscheme = 'lucious' " Powerline colorscheme
+    " let g:Powerline_colorscheme = 'lucious' " Powerline colorscheme
 " }
 
 " Ag {
@@ -46,7 +46,6 @@
         \ ['214', '214'],
         \ ['219', '219'],
     \ ]
-
 " }
 
 " CommandT {
@@ -57,28 +56,31 @@
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " }
 
-" Powerline {
-    " Need to find a better way to check if powerline is installed
-    if isdirectory(expand($HOME."/.config"))
-        " Hurry up powerline when exiting insert mode
-        if ! has('gui_running')
-            set ttimeoutlen=10
-            augroup FastEscape
-                autocmd!
-                au InsertEnter * set timeoutlen=0
-                au InsertLeave * set timeoutlen=1000
-            augroup END
-        endif
+" Airline {
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme = 'dark'
+" }
 
-        " Powerline settings
-        "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-        python from powerline.vim import setup as powerline_setup
-        python powerline_setup()
-        python del powerline_setup
-    endif
+" Promptline {
+    let g:promptline_theme = 'airline_insert'
+
+    let g:promptline_preset = {
+        \'a' : [ promptline#slices#battery({ 'threshold': 25 }), promptline#slices#last_exit_code() ],
+        \'b' : [ promptline#slices#vcs_branch() ],
+        \'c' : [ promptline#slices#cwd() ] }
+" }
+
+" Git Gutter {
+    let g:gitgutter_realtime = 0
+    let g:gitgutter_eager = 0
 " }
 
 " vim-scala {
     " Turn off default key mappings as it interfears with my key mappings
     let g:scala_use_default_keymappings = 0
+" }
+
+" Syntastic {
+    let g:syntastic_debug = 0
 " }

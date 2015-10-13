@@ -12,19 +12,18 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Shougo/vimproc'
+"Plugin 'Shougo/vimproc'
 
 " Navigating
-"Plugin 'kien/ctrlp.vim'
-Plugin 'wincent/Command-T'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'wincent/Command-T'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'Lokaltog/powerline', 'develop'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/promptline.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'Shougo/neocomplete.vim'
-"Plugin 'Shougo/neosnippet.vim'
-"Plugin 'Shougo/neosnippet-snippets'
 Plugin 'rking/ag.vim'
 
 " Editing
@@ -38,19 +37,18 @@ Plugin 'groenewege/vim-less'
 Plugin 'kien/rainbow_parentheses.vim'
 
 " Spelling & Grammar
-Plugin 'vim-scripts/LanguageTool'
+"Plugin 'vim-scripts/LanguageTool'
 
 " HTML
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 
 " PHP
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tomphp/vim-phpdoc'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'scrooloose/syntastic.git'
-Plugin 'joonty/vdebug'
+"Plugin 'joonty/vdebug'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'vim-php/vim-php-refactoring'
 
@@ -63,13 +61,14 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'tpope/vim-fireplace'
 
+" Ruby
 Plugin 'tpope/vim-endwise'
 
 " Twig syntax
 Plugin 'evidens/vim-twig'
 
 " Used for vim debug
-Plugin 'tyru/open-browser.vim'
+"Plugin 'tyru/open-browser.vim'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -77,23 +76,15 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'airblade/vim-gitgutter'
 
-" Puppet syntax
-"Plugin 'rodjek/vim-puppet'
-
 " Snipmate dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'tomphp/vim-snippets'
 
-" SnipMate
-"Plugin 'garbas/vim-snipmate'
+" Snippets
 Plugin 'SirVer/ultisnips'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
-
-" Gmail
-"Plugin 'yuratomo/gmail.vim'
 
 " Colour table
 Plugin 'guns/xterm-color-table.vim'

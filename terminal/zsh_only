@@ -1,8 +1,7 @@
 # vim: syntax=sh
 
-# Powerline
-POWERLINE_SCRIPT=$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+PROMPTLINE_THEME=$HOME/.dotfiles/terminal/zsh_theme.sh
 
-if [ -f "$POWERLINE_SCRIPT" ]; then
-    . "$POWERLINE_SCRIPT"
+if [ -f "$PROMPTLINE_THEME" ]; then
+    . "$PROMPTLINE_THEME"
 fi

@@ -1,13 +1,6 @@
 # vim: syntax=sh
 
-# Powerline
-POWERLINE_SCRIPT=$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
-
-if [ -f "$POWERLINE_SCRIPT" ]; then
-    . "$POWERLINE_SCRIPT"
-fi
-
 # Tab Completion for Bash
-if type brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+if which brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
