@@ -4,3 +4,4 @@ tags
 .vagrant
 .bundle
 npm-debug.log
+.idea
