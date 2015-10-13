@@ -47,7 +47,7 @@ export ZSH=/Users/tomoram/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler git opp zsh-syntax-highlighting tmuxinator)
+plugins=(bundler git opp zsh-syntax-highlighting tmuxinator Composer encode64 common-aliases)
 
 # User configuration
 
