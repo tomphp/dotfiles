@@ -24,6 +24,9 @@ fi
 # Default Editor
 export EDITOR='vim'
 
+# No cows for ansible
+export ANSIBLE_NOCOWS=1
+
 vim()
 {
     # osx users, use stty -g
