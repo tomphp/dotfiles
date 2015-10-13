@@ -10,7 +10,6 @@ PATH=./bin:$PATH
 . $CONFIG_DIR/python
 . $CONFIG_DIR/ruby
 . $CONFIG_DIR/node
-. $CONFIG_DIR/go
 . $CONFIG_DIR/haskell
 
 # Terminal settings

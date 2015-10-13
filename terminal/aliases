@@ -13,8 +13,6 @@ alias vi="vim"
 
 # Silly & Fun
 alias lsd="echo That\\'s some trippy shit!"
-alias fucking="sudo"
-alias fuck='sudo $(history -p \!\!)'
 
 # PHP related
 alias r="phpspec run"
