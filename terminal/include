@@ -36,3 +36,8 @@ vim()
     command vim "$@"
     stty "$STTYOPTS"
 }
+
+nvim()
+{
+    vim()
+}
