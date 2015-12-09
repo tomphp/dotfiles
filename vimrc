@@ -44,3 +44,51 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Workspace Setup
+" ----------------
+function! DefaultWorkspace()
+    " Rough num columns to decide between laptop and big monitor screens
+    let numcol = 2
+    if winwidth(0) >= 220
+        let numcol = 3
+    endif
+
+    if numcol == 3
+        e term://zsh
+        file Shell\ Two
+        vnew
+    endif
+
+    vsp term://~/Programs/golang/context
+    file Context
+    sp term://zsh
+    file Shell\ One
+    wincmd k
+    resize 4
+    wincmd h
+endfunction
+command! -register DefaultWorkspace call DefaultWorkspace()
+
+
+"{{{ Cursor Color Customizations → 
+"These are based on blaenkdenum's cool
+"mode aware cursor hack. For more, visit
+"http://www.blaenkdenum.com/posts/a-simpler-vim-statusline/
+"Set the cursor color according to the mode.
+"This one should work for most Dark Themes 
+hi ModeMsg guifg=#FD971F guibg=NONE gui=NONE
+"set gcr=a:block
+" mode aware cursors
+set gcr+=o:hor50-Cursor
+set gcr+=n:Cursor
+set gcr+=i-ci-sm:InsertCursor
+set gcr+=r-cr:ReplaceCursor-hor20
+set gcr+=c:CommandCursor
+set gcr+=v-ve:VisualCursor
+hi InsertCursor ctermfg=15 guifg=#fdf6e3 ctermbg=37 guibg=#FD971F
+hi VisualCursor ctermfg=15 guifg=#000000 ctermbg=125 guibg=#AE81FF
+hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65 guibg=#66D9EF
+hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#A6E22E
+"--------------------------------------------------------------
+"}}}

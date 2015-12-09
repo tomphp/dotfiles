@@ -13,6 +13,10 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 
 "Plugin 'Shougo/vimproc'
+"Plugin 'benmills/vimux'
+Plugin 'ktonga/vim-follow-my-lead'
+
+Plugin 'Shougo/deoplete.nvim'
 
 " Navigating
 Plugin 'kien/ctrlp.vim'
@@ -32,9 +36,11 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
 
 " Theme
+"Plugin 'joshdick/onedark.vim'
 Plugin 'Lucius', '7.1.1'
 Plugin 'groenewege/vim-less'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'Yggdroot/indentLine'
 
 " Spelling & Grammar
 "Plugin 'vim-scripts/LanguageTool'
@@ -88,3 +94,6 @@ Plugin 'derekwyatt/vim-scala'
 
 " Colour table
 Plugin 'guns/xterm-color-table.vim'
+
+" CSV
+" Plugin 'chrisbra/csv.vim'

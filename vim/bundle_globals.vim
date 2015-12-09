@@ -5,7 +5,7 @@
 " }
 
 " Ag {
-    let g:agprg="ag --ignore tags --column"
+    let g:ag_prg="ag --ignore tags --column"
 " }
 
 " neocomplete {

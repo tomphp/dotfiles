@@ -6,6 +6,9 @@
 let mapleader = "`" 
 let maplocalleader = "\\"
 
+" Switch modes
+imap jk <Esc>
+
 "Navigate wrapped lines
 nnoremap j gj
 nnoremap k gk
