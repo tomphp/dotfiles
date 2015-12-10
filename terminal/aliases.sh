@@ -7,6 +7,7 @@ alias ssh="TERM=xterm ssh"
 
 # Applications
 alias v="nvim"
+alias vdw="nvim +DefaultWorkspace"
 
 # Silly & Fun
 alias lsd="echo That\\'s some trippy shit!"

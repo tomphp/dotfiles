@@ -20,19 +20,11 @@ source $HOME/.dotfiles/vim/functions.vim
 source $HOME/.dotfiles/vim/environment.vim
 source $HOME/.dotfiles/vim/keymappings.vim
     
-source $HOME/.dotfiles/vim/coffeescript.vim
-source $HOME/.dotfiles/vim/cpp.vim
-source $HOME/.dotfiles/vim/cucumber.vim
-source $HOME/.dotfiles/vim/web.vim
-source $HOME/.dotfiles/vim/javascript.vim
-source $HOME/.dotfiles/vim/markdown.vim
+source $HOME/.dotfiles/vim/code.vim
 source $HOME/.dotfiles/vim/php.vim
 source $HOME/.dotfiles/vim/ruby.vim
-source $HOME/.dotfiles/vim/scala.vim
 source $HOME/.dotfiles/vim/text.vim
-source $HOME/.dotfiles/vim/haskell.vim
 
-source $HOME/.dotfiles/vim/filetypes.vim
 source $HOME/.dotfiles/vim/testing.vim
 
 " Use local vimrc if available
@@ -54,19 +46,16 @@ function! DefaultWorkspace()
         let numcol = 3
     endif
 
+    sp term://zsh
+    wincmd J
+    resize 10
+    wincmd k
+
     if numcol == 3
-        e term://zsh
-        file Shell\ Two
         vnew
     endif
 
-    vsp term://~/Programs/golang/context
-    file Context
-    sp term://zsh
-    file Shell\ One
-    wincmd k
-    resize 4
-    wincmd h
+    vnew
 endfunction
 command! -register DefaultWorkspace call DefaultWorkspace()
 

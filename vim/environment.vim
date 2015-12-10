@@ -81,6 +81,9 @@
     " Line Numbers
     set number
 
+    " Show commands
+    set showcmd
+
     " Show a status bar
     set ruler
     set laststatus=2

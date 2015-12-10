@@ -12,40 +12,50 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'Shougo/vimproc'
-"Plugin 'benmills/vimux'
-Plugin 'ktonga/vim-follow-my-lead'
+" Plugin 'Shougo/deoplete.nvim'
+Plugin 'benekastah/neomake'
 
-Plugin 'Shougo/deoplete.nvim'
-
-" Navigating
-Plugin 'kien/ctrlp.vim'
-"Plugin 'wincent/Command-T'
-Plugin 'scrooloose/nerdtree'
+" Look and feel
 Plugin 'bling/vim-airline'
+Plugin 'Lucius', '7.1.1'
+"Plugin 'joshdick/onedark.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'kien/rainbow_parentheses.vim'
+
+" Integratation
+Plugin 'kassio/neoterm'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'edkolev/promptline.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Filesystem
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf'
 Plugin 'rking/ag.vim'
 
 " Editing
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'bootleq/vim-cycle'
 
-" Theme
-"Plugin 'joshdick/onedark.vim'
-Plugin 'Lucius', '7.1.1'
-Plugin 'groenewege/vim-less'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'Yggdroot/indentLine'
+" Snipmate dependencies
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+
+" Snippets
+Plugin 'SirVer/ultisnips'
 
 " Spelling & Grammar
 "Plugin 'vim-scripts/LanguageTool'
 
-" HTML
+" Web Development
+" Plugin 'groenewege/vim-less'
 "Plugin 'mattn/emmet-vim'
 
 " PHP
@@ -53,7 +63,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tomphp/vim-phpdoc'
 Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'scrooloose/syntastic.git'
+"Plugin 'scrooloose/syntastic.git'
 "Plugin 'joonty/vdebug'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'vim-php/vim-php-refactoring'
@@ -82,18 +92,12 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'airblade/vim-gitgutter'
 
-" Snipmate dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-
-" Snippets
-Plugin 'SirVer/ultisnips'
-
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
-" Colour table
-Plugin 'guns/xterm-color-table.vim'
-
 " CSV
 " Plugin 'chrisbra/csv.vim'
+
+" VIM tools
+Plugin 'guns/xterm-color-table.vim'
+Plugin 'ktonga/vim-follow-my-lead'

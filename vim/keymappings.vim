@@ -1,7 +1,5 @@
 " vim: syntax=vim
 "
-"
-"
 
 let mapleader = "`" 
 let maplocalleader = "\\"
@@ -40,13 +38,22 @@ vnoremap // y/<C-R>"<CR>
 " Leader F for easymotion find anywhere
 map <Leader>f <Plug>(easymotion-s)
 
+" Change cycle
+nmap <silent> ccn <Plug>CycleNext
+vmap <silent> ccn <Plug>CycleNext
+nmap <silent> ccp <Plug>CyclePrev
+vmap <silent> ccp <Plug>CyclePrev
+
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Ctrl+P for Unite
-nnoremap <silent> <C-p> :CommandT<CR>
+" nnoremap <silent> <C-p> :CommandT<CR>
+
+" FZF
+nnoremap <silent> <C-p> :FZF<CR>
 
 " CTRL+S for save
 

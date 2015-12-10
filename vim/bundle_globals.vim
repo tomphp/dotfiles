@@ -81,6 +81,12 @@
     let g:scala_use_default_keymappings = 0
 " }
 
+
+" Neomake {
+    autocmd! BufWritePost * Neomake
+" }
 " Syntastic {
     let g:syntastic_debug = 0
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_cpp_compiler_options = ' -std=c++11'
 " }

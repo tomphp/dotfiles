@@ -1,13 +1,5 @@
-autocmd FileType php setlocal ts=4 sts=4 sw=4
-
 " Auto completion
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-" Strip trailing white space from .php files
-autocmd BufWritePre *.php :%s/\s\+$//e
-
-" Indentation rules
-autocmd FileType php set expandtab
 
 " Folding
 "let php_folding=1

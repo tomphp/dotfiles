@@ -13,7 +13,7 @@ fi
 
 vim()
 {
-  nvim
+  nvim "$@"
 }
 
 nvim()

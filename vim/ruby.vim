@@ -1,10 +1,3 @@
-autocmd FileType ruby setlocal ts=2 sts=2 sw=2
-autocmd FileType eruby setlocal ts=2 sts=2 sw=2
-
-" Strip trailing white space on save
-autocmd BufWritePre *.rb :%s/\s\+$//e
-autocmd BufWritePre *.erb :%s/\s\+$//e
-
 hi rubySymbol ctermfg=111
 
 autocmd FileType ruby let b:acceptance_test_command = 'bundle exec cucumber'
