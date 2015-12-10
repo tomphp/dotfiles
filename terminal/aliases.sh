@@ -1,5 +1,3 @@
-# vim: syntax=sh
-
 # Aliases
 alias ls='ls -G'
 alias rm="rm -i"

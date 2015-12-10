@@ -59,28 +59,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -90,6 +70,7 @@ setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep share_history
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/tomoram/.zshrc'
 
@@ -97,19 +78,18 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-MY_SHELL=zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 # 10ms for key sequences
 KEYTIMEOUT=1
 
 # Location for custom bas config scripts
-. $HOME/.dotfiles/terminal/include
+. $HOME/.dotfiles/terminal/include.sh
 
+# VI mode visuals
 function zle-line-init zle-keymap-select {
     RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
     RPS2=$RPS1
     zle reset-prompt
 }
-
 zle -N zle-line-init
 zle -N zle-keymap-select

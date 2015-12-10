@@ -1,6 +1,6 @@
 # vim: syntax=sh
 
 # Tab Completion for Bash
-if which brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+if $BREW_INSALLED && [[ -f $(brew --prefix)/etc/bash_completion ]]; then
     . $(brew --prefix)/etc/bash_completion
 fi
