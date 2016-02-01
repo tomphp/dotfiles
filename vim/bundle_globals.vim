@@ -19,7 +19,7 @@
 "   imap <C-j> <Plug>(neosnippet_expand_or_jump)
 "   smap <C-j> <Plug>(neosnippet_expand_or_jump)
 "   xmap <C-j> <Plug>(neosnippet_expand_target)
-"   
+"
 "   " For snippet_complete marker.
 "   if has('conceal')
 "     set conceallevel=2 concealcursor=niv
@@ -84,6 +84,7 @@
 
 " Neomake {
     autocmd! BufWritePost * Neomake
+    let g:neomake_php_phpcs_args_standard = 'psr2'
 " }
 " Syntastic {
     let g:syntastic_debug = 0

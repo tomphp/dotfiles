@@ -21,6 +21,7 @@ source $HOME/.dotfiles/vim/environment.vim
 source $HOME/.dotfiles/vim/keymappings.vim
     
 source $HOME/.dotfiles/vim/code.vim
+source $HOME/.dotfiles/vim/clojure.vim
 source $HOME/.dotfiles/vim/php.vim
 source $HOME/.dotfiles/vim/ruby.vim
 source $HOME/.dotfiles/vim/text.vim

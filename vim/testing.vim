@@ -1,6 +1,7 @@
 function SaveAndRunCommand(command)
     execute ':w!'
-    execute ':!' . a:command
+    "execute ':!' . a:command
+    execute ':T ' . a:command
 endfunction
 
 map <Leader>tl :call SaveAndRunCommand(b:lint_test_command)<CR>

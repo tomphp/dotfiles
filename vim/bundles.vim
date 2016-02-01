@@ -9,7 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 
 " Plugin 'Shougo/deoplete.nvim'
@@ -82,6 +82,9 @@ Plugin 'tpope/vim-endwise'
 
 " Twig syntax
 Plugin 'evidens/vim-twig'
+
+" Nginx
+Plugin 'evanmiller/nginx-vim-syntax'
 
 " Used for vim debug
 "Plugin 'tyru/open-browser.vim'
