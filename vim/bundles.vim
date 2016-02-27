@@ -56,7 +56,7 @@ Plugin 'SirVer/ultisnips'
 
 " Web Development
 " Plugin 'groenewege/vim-less'
-"Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 
 " PHP
 Plugin 'StanAngeloff/php.vim'
