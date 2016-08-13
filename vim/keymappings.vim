@@ -1,8 +1,8 @@
 " vim: syntax=vim
 "
 
-let mapleader = "`" 
-let maplocalleader = "\\"
+let mapleader = "\<space>"
+let maplocalleader = "`"
 
 " Switch modes
 imap jk <Esc>
@@ -32,6 +32,14 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" OS Copy & Paste
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
 " Search for currently selected text
 vnoremap // y/<C-R>"<CR>
 
@@ -53,13 +61,13 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " nnoremap <silent> <C-p> :CommandT<CR>
 
 " FZF
-nnoremap <silent> <C-p> :FZF<CR>
+nnoremap <silent> <Leader>o :FZF<CR>
 
 " CTRL+S for save
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
-command! -nargs=0 -bar Update if &modified 
+command! -nargs=0 -bar Update if &modified
     \|  if empty(bufname('%'))
     \|      browse confirm write
     \|  else
@@ -67,8 +75,7 @@ command! -nargs=0 -bar Update if &modified
     \|  endif
     \|endif
 
-nnoremap <silent> <C-S> :<C-u>Update<CR>
-inoremap <c-s> <c-o>:Update<CR>
+nnoremap <silent> <leader>s :<C-u>Update<CR>
 
 " CTRL+SPACE for autocomplete
 "imap <c-Space> <c-x><c-o>
@@ -82,6 +89,11 @@ noremap <Leader>a ggVG
 
 " Search Project
 noremap <leader>g :Ag <C-r><C-w><CR>
+
+" Execute
+nnoremap <Leader>ee :T<Space>
+nnoremap <Leader>ea :T<Up><CR>
+nnoremap <Leader>ef :T  %<Left><Left>
 
 " Move lines up and down (requires alt aka gvim)
 nnoremap <A-j> :m .+1<CR>==

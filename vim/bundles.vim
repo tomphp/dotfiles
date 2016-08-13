@@ -17,7 +17,9 @@ Plugin 'benekastah/neomake'
 
 " Look and feel
 Plugin 'bling/vim-airline'
-Plugin 'Lucius', '7.1.1'
+"Plugin 'Lucius', '7.1.1'
+Plugin 'jonathanfilip/vim-lucius'
+
 "Plugin 'joshdick/onedark.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -42,7 +44,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sleuth'
 Plugin 'bootleq/vim-cycle'
+Plugin 'terryma/vim-expand-region'
 
 " Snipmate dependencies
 "Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -94,6 +98,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'airblade/vim-gitgutter'
+
+" Haskell
+Plugin 'dag/vim2hs'
 
 " Scala
 Plugin 'derekwyatt/vim-scala'

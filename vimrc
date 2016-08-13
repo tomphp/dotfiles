@@ -25,6 +25,7 @@ source $HOME/.dotfiles/vim/clojure.vim
 source $HOME/.dotfiles/vim/php.vim
 source $HOME/.dotfiles/vim/ruby.vim
 source $HOME/.dotfiles/vim/text.vim
+source $HOME/.dotfiles/vim/haskell.vim
 
 source $HOME/.dotfiles/vim/testing.vim
 

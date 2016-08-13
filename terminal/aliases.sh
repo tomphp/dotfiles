@@ -16,7 +16,13 @@ alias lsd="echo That\\'s some trippy shit!"
 alias r="phpspec run"
 alias spec="phpspec desc"
 
-alias bbpr="sh -c \"BITBUCKET_PR=\\\$(awk 'f{print;f=0} /Create pull request for/{f=1}' | sed 's/^remote: *\\(.*\\)$/\1/'); open \\\$BITBUCKET_PR\""
+# docker
+alias dcleanup='docker rm $(docker ps -aq)'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+dmysql() {
+  docker exec -ti $1 sh -c "TERM=$TERM mysql -u $2 -p"
+}
 
 # docker-machine
 alias dm='docker-machine'
@@ -25,9 +31,13 @@ alias dme='docker-machine env'
 dmle() {
   eval `dme $1`
 }
+alias dmde='dmle docker'
 alias dmip='docker-machine ip'
 
 # docker-compose
 alias dc='docker-compose'
 alias dcup='docker-compose up'
 alias dcr='docker-compose run'
+
+# CR stuff
+alias pt='papertrail'

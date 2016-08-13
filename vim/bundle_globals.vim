@@ -26,6 +26,11 @@
 "   endif
 " }
 
+" Expand Region {
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
+" }
+
 " LanguageTool {
     let g:languagetool_jar='$HOME/Applications/LanguageTool-2.6/languagetool-commandline.jar'
     let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,MORFOLOGIK_RULE_EN_GB,COMMA_PARENTHESIS_WHITESPACE'
@@ -85,6 +90,8 @@
 " Neomake {
     autocmd! BufWritePost * Neomake
     let g:neomake_php_phpcs_args_standard = 'psr2'
+
+    let g:neomake_javascript_enabled_makers = ['eslint']
 " }
 " Syntastic {
     let g:syntastic_debug = 0
