@@ -1,6 +1,7 @@
 [user]
     name = Tom Oram
-    email = tom@x2k.co.uk
+    email = tom@codept.com
+	signingkey = 7E22C19A8506B889
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
