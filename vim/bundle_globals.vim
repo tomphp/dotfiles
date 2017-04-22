@@ -98,3 +98,7 @@
     let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_cpp_compiler_options = ' -std=c++11'
 " }
+
+" elm-vim {
+    let g:elm_format_autosave = 1
+" }

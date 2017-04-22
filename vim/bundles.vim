@@ -75,6 +75,10 @@ Plugin 'vim-php/vim-php-refactoring'
 " Coffeescript
 Plugin 'kchmck/vim-coffee-script'
 
+" Elm
+" Plugin 'lambdatoast/elm.vim'
+Plugin 'elmcast/elm-vim'
+
 " Clojure
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'guns/vim-clojure-static'
