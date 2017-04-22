@@ -41,3 +41,6 @@ alias dcr='docker-compose run'
 
 # CR stuff
 alias pt='papertrail'
+
+# The fuck
+eval "$(thefuck --alias)"
