@@ -78,4 +78,5 @@ fi
 ################################################################################
 if [[ $CURRENT_OS == "osx" ]]; then
   export PATH="$HOME/Library/Haskell/bin:$PATH"
+  export PATH="$HOME/.cabal/bin:$PATH"
 fi
