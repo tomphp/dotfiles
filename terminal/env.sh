@@ -40,10 +40,6 @@ export ANSIBLE_NOCOWS=1
 ################################################################################
 # PHP
 ################################################################################
-if [[ $BREW_INSTALLED ]]; then
-  export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-fi
-
 # Run composer executables
 PATH=./vendor/bin:$HOME/.composer/vendor/bin:$PATH
 
