@@ -106,6 +106,9 @@ Plugin 'airblade/vim-gitgutter'
 " Haskell
 Plugin 'dag/vim2hs'
 
+" Idris
+Plugin 'idris-hackers/idris-vim'
+
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
