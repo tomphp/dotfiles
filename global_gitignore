@@ -6,3 +6,4 @@ tags
 npm-debug.log
 .idea
 .projectfile
+*.iml
