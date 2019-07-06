@@ -16,7 +16,6 @@ cask "iterm2"
 cask "webstorm"
 cask "astropad"
 cask "tla-plus-toolbox"
-cask "adoptopenjdk8"
 
 brew "stack"
 brew "cabal-install"
