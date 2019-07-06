@@ -1,9 +1,0 @@
-*.swp
-tags
-.DS_Store
-.vagrant
-.bundle
-npm-debug.log
-.idea
-.projectfile
-*.iml

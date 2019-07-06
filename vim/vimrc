@@ -1,0 +1,42 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-syntastic/syntastic'
+Plug 'mhinz/vim-signify'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'zenzike/vim-haskell-unicode'
+Plug 'sbdchd/neoformat'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'purescript-contrib/purescript-vim'
+Plug 'ElmCast/elm-vim'
+
+call plug#end()
+
+let g:dracula_italic = 0
+
+syntax on
+color dracula
+
+set cursorline
+highlight ColorColumn ctermbg=238 guibg=#444444
+set colorcolumn=80
+set number
+set hlsearch
+
+let mapleader = "\<space>"
+let maplocalleader = "`"
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:NERDTreeNodeDelimiter = "\u00a0"
+noremap <Leader>b :NERDTreeToggle<CR>
