@@ -18,6 +18,11 @@ main :: IO ()
 main = do
   echo "Installing software"
   brewBundle
+  echo "Creating project directories"
+  personalProjects <- homePath "Projects/tomoram"
+  mktree personalProjects
+  akProjects <- homePath "Projects/ak"
+  mktree akProjects
   echo "Setting up git"
   setupGit
   echo "Setting up ZSH"
