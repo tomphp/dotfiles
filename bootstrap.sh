@@ -8,7 +8,6 @@ set -exufo pipefail
 # Install Stack
 brew install stack
 
-
 # export GPG_TTY=$(tty)
 
 # rbenv init

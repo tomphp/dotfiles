@@ -38,9 +38,9 @@ setupGit :: IO ()
 setupGit = do
   linkDotfile "git/gitconfig" ".gitconfig"
   linkDotfile "git/gitignore_global" ".gitignore_global"
-  h <- home
-  cur <- pwd
-  forceSymlink (cur </> "git/ak_gitconfig") (h </> "Projects/ak/.gitconfig")
+  target <- repoPath "git/ak_gitconfig"
+  link <- homePath "Projects/ak/.gitconfig"
+  forceSymlink target link
 
 -- zsh
 
@@ -103,7 +103,7 @@ installVimPlug = do
 installVimPlugins :: IO ()
 installVimPlugins = do
   echo "Installing VIM plugins"
-  res <- cmd "vim +PlugInstall!"
+  res <- cmd "vim +PlugInstall! +qall"
   case res of
     ExitSuccess -> echo "Success"
     ExitFailure err -> print err
@@ -112,11 +112,8 @@ installVimPlugins = do
 
 linkDotfile :: FilePath -> FilePath -> IO ()
 linkDotfile target link = do
-  h <- home 
-  cur <- pwd
-  let target' = cur </> target
-  let link' = h </> link
-
+  target' <- repoPath target
+  link' <- homePath link
   forceSymlink target' link'
 
 cmd :: Text -> IO ExitCode
@@ -150,3 +147,9 @@ gitClone url dest = do
         case res of
           ExitSuccess -> echo "Success"
           ExitFailure err -> print err
+
+repoPath :: FilePath -> IO FilePath
+repoPath path = (</> path) <$> pwd
+
+homePath :: FilePath -> IO FilePath
+homePath path = (</> path) <$> home
