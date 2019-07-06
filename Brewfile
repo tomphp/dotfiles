@@ -2,21 +2,30 @@ cask "google-chrome"
 cask "1password"
 cask "slack"
 cask "evernote"
+cask "calibre"
+cask "authy"
+cask "iterm2"
+cask "astropad"
+
+# Visual Studio Code
 cask "visual-studio-code"
+
+# JetBrains
 cask "pycharm"
 cask "intellij-idea"
-cask "authy"
+cask "webstorm"
+
+# TLA+
+cask "tla-plus-toolbox"
+
+# Dev tools
 cask "java"
 cask "docker"
-cask "calibre"
 cask "dropbox"
 cask "minikube"
 cask "virtualbox"
-cask "iterm2"
-cask "webstorm"
-cask "astropad"
-cask "tla-plus-toolbox"
 
+# CLI
 brew "stack"
 brew "cabal-install"
 brew "lastpass-cli"
