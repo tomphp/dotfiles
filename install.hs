@@ -23,6 +23,8 @@ main = do
   mktree personalProjects
   akProjects <- homePath "Projects/ak"
   mktree akProjects
+  echo "Setting up gpg"
+  setupGpg
   echo "Setting up git"
   setupGit
   echo "Setting up ZSH"
@@ -36,6 +38,16 @@ brewBundle = do
   case result of
     ExitSuccess   -> echo "All software installed"
     ExitFailure _ -> echo "Install failed"
+
+-- gpg
+
+setupGpg :: IO ()
+setupGpg = do
+  gpgDir <- homePath ".gnupg/"
+  mktree gpgDir
+  
+  linkDotfile "gpg/gpg.conf" ".gnupg/gpg.conf"
+  linkDotfile "gpg/gpg-agent.conf" ".gnupg/gpg-agent.conf"
 
 -- git
 
