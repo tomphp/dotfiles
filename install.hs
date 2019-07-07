@@ -1,5 +1,6 @@
 #!/usr/bin/env stack
 {- stack --resolver lts-13.3 script
+    --package executable-path
     --package turtle
     --package text
 -}
@@ -11,6 +12,7 @@ import Prelude hiding (FilePath)
 import Turtle
 import Data.Text (isPrefixOf, pack)
 import Debug.Trace
+import System.Environment.Executable (ScriptPath(..), getScriptPath)
 
 data OS = OSX deriving Show
 
@@ -166,7 +168,15 @@ gitClone url dest = do
           ExitFailure err -> print err
 
 repoPath :: FilePath -> IO FilePath
-repoPath path = (</> path) <$> pwd
+repoPath path = (</> path) <$> scriptDir
 
 homePath :: FilePath -> IO FilePath
 homePath path = (</> path) <$> home
+
+scriptDir :: IO FilePath
+scriptDir = do
+  scriptPath <- getScriptPath
+  case scriptPath of
+    Executable p -> return $ directory (fromString p)
+    RunGHC p     -> return $ directory (fromString p)
+    Interactive  -> error "This should not be run in GHCI"
