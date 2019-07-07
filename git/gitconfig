@@ -27,5 +27,8 @@
 	new = green bold
 	whitespace = red reverse
 
+[gpg]
+	program = /usr/local/bin/gpg
+
 [includeIf "gitdir:~/Projects/ak/"]
   path = ~/Projects/ak/.gitconfig
