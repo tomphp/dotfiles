@@ -33,6 +33,8 @@ main = do
   setupZsh
   echo "Setting up VIM"
   setupVim
+  echo "Setting up VSCode"
+  view installVSCodeExtensions
 
 brewBundle :: IO ()
 brewBundle = do
@@ -127,6 +129,19 @@ installVimPlugins = do
     ExitSuccess -> echo "Success"
     ExitFailure err -> print err
 
+-- VScode
+
+installVSCodeExtensions :: Shell ()
+installVSCodeExtensions = do
+  ext <- select extensions
+  void $ cmd $ format ("code --install-extension " %s) ext
+  where extensions =
+          [ "ms-vsliveshare.vsliveshare"
+          , "pivotal.vscode-concourse"
+          , "mauve.terraform"
+          , "mauve.terraform"
+          ]
+
 -- Lib
 
 linkDotfile :: FilePath -> FilePath -> IO ()
@@ -135,7 +150,7 @@ linkDotfile target link = do
   link' <- homePath link
   forceSymlink target' link'
 
-cmd :: Text -> IO ExitCode
+cmd :: MonadIO io => Text -> io ExitCode
 cmd c = shell c empty
 
 chsh :: FilePath -> IO ()
