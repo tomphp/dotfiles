@@ -139,7 +139,11 @@ installVSCodeExtensions = do
           [ "ms-vsliveshare.vsliveshare"
           , "pivotal.vscode-concourse"
           , "mauve.terraform"
-          , "mauve.terraform"
+          -- haskell
+          , "justusadam.language-haskell"
+          , "hoovercj.haskell-linter"
+          -- elm
+          , "sbrink.elm"
           ]
 
 -- Lib
