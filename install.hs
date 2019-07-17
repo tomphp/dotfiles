@@ -137,6 +137,7 @@ installVSCodeExtensions = do
   void $ cmd $ format ("code --install-extension " %s) ext
   where extensions =
           [ "ms-vsliveshare.vsliveshare"
+          , "streetsidesoftware.code-spell-checker"
           , "pivotal.vscode-concourse"
           , "mauve.terraform"
           -- haskell
