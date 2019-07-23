@@ -6,6 +6,7 @@ cask "calibre"
 cask "authy"
 cask "iterm2"
 cask "astropad"
+cask "google-cloud-sdk"
 
 # Visual Studio Code
 cask "visual-studio-code"
