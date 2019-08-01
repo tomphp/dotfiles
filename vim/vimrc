@@ -20,6 +20,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'purescript-contrib/purescript-vim'
 Plug 'ElmCast/elm-vim'
 Plug 'vmchale/dhall-vim'
+Plug '/idris-hackers/idris-vim'
 
 call plug#end()
 

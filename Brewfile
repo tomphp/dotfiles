@@ -1,3 +1,5 @@
+tap "cantino/mcfly", "https://github.com/cantino/mcfly"
+
 cask "google-chrome"
 cask "1password"
 cask "slack"
@@ -55,3 +57,4 @@ brew "yq"
 brew "graphviz"
 brew "awscli"
 brew "dhall-json"
+brew "idris"
