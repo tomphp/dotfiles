@@ -15,6 +15,7 @@ cask "visual-studio-code"
 
 # JetBrains
 cask "pycharm"
+cask "phpstorm"
 cask "intellij-idea"
 cask "webstorm"
 
