@@ -42,6 +42,7 @@ brew "nvm"
 brew "diff-so-fancy"
 # zlib required for pyenv
 brew "zlib"
+brew "php"
 brew "pyenv"
 brew "pipenv"
 brew "autojump"
