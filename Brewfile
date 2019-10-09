@@ -1,5 +1,8 @@
 tap "cantino/mcfly", "https://github.com/cantino/mcfly"
 
+tap "git-duet/tap"
+brew "git-duet"
+
 cask "google-chrome"
 cask "1password"
 cask "slack"
