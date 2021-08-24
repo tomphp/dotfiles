@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
-{- stack --resolver lts-13.3 script
+{- stack --resolver lts-18.7 script
     --package executable-path
     --package turtle
     --package text
