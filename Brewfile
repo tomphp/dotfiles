@@ -1,15 +1,10 @@
-#tap "cantino/mcfly", "https://github.com/cantino/mcfly"
-
-cask "google-chrome"
 cask "calibre"
-cask "authy"
 cask "iterm2"
 
 # Visual Studio Code
 cask "visual-studio-code"
 
 # CLI
-brew "stack"
 brew "lastpass-cli"
 brew "gnupg"
 brew "pinentry-mac"

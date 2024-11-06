@@ -2,3 +2,8 @@
 	email = tom.oram@armakuni.com
 	name = Tom Oram
 	signingkey = 36BB0651D6FD448F
+
+[mit "author.config.to"]
+	email = tom.oram@armakuni.com
+	name = Tom Oram
+

@@ -1,15 +1,15 @@
 [user]
 	email = me@tomoram.io
 	name = Tom Oram
-	signingkey = 387CC207CD84D63F
+    signingkey = 387CC207CD84D63F
 
 [commit]
-	gpgsign = true
+    gpgsign = true
 
 [core]
 	excludesfile = /Users/tomoram/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	autocrlf = false
+	autocrlf = input
 
 [color]
 	ui = true
@@ -29,16 +29,23 @@
 	whitespace = red reverse
 
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 
 [includeIf "gitdir:~/Projects/ak/"]
-  path = ~/Projects/ak/.gitconfig
+	path = ~/Projects/ak/.gitconfig
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [init]
 	defaultBranch = main
+
 [trailer "co"]
 	key = Co-authored-by
+
+[push]
+	autoSetupRemote = true
+

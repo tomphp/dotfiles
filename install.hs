@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
-{- stack --resolver lts-18.7 script
+{- stack --resolver lts-19.17 script
     --package executable-path
     --package turtle
     --package text
@@ -29,12 +29,12 @@ main = do
   setupGpg
   echo "Setting up git"
   setupGit
-  echo "Setting up ZSH"
-  setupZsh
-  echo "Setting up VIM"
-  setupVim
-  echo "Setting up VSCode"
-  view installVSCodeExtensions
+  -- echo "Setting up ZSH"
+  -- setupZsh
+  -- echo "Setting up VIM"
+  -- setupVim
+  -- echo "Setting up VSCode"
+  -- view installVSCodeExtensions
 
 brewBundle :: IO ()
 brewBundle = do
