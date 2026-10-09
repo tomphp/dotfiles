@@ -71,6 +71,7 @@ setupZsh = do
   chshToZsh
   installOhMyZsh
   linkDotfile "zsh/zshrc" ".zshrc"
+  linkDotfile "zsh/zsh_plugins.txt" ".zsh_plugins.txt"
   installZshDraculaTheme
 
 chshToZsh :: IO ()
